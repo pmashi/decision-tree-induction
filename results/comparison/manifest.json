@@ -1,0 +1,63 @@
+{
+  "started_at_utc": "2026-11-22T20:22:03.704573+00:00",
+  "arguments": {
+    "benchmarks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "models": [
+      "gain",
+      "gain_ratio",
+      "gini",
+      "logistic_regression",
+      "knn",
+      "gaussian_nb"
+    ],
+    "data_dir": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\data\\processed",
+    "output_dir": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison",
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "repeats": 3,
+    "batch_size": 2048,
+    "no_plot": false
+  },
+  "source_sha256": {
+    "main.py": "3e88b49e9c33a9e7002b6d204567441594f12f98ff70be6c63660e734963e131",
+    "requirements.txt": "017978b0fac59b4a339bcf76223f86cce4c2b35bf6f38f9962727c003a8fd055",
+    "algorithms\\baselines.py": "a5a9e9f50e1c0792f7d7f67c1aede3879d1a954c1399230265e3b3a10f3a4375",
+    "algorithms\\decision_tree.py": "0234a4b16372037075dc2b64e61991989e2685d501e4f07e8e7e4e9dcb07ad16",
+    "algorithms\\split_criteria.py": "1b0981db69d8ab48a2fc1433bb8345921e7c738662cb2559e5d8a6ee05d4aee3",
+    "algorithms\\__init__.py": "b08e748463f61071ab34dc9665130ab8bd7d37b59d31d97e96ca31065df0474c",
+    "benchmarking\\evaluation.py": "5ab994b95cb869cbfc75fe3ac37f7fad6bfe7f896b9ac8b85ecdf1b47aa44a76",
+    "benchmarking\\reporting.py": "d3c123e61259305a8e5bb17958d4e01bde2203ee84d8a8d85e751a49c49bb3ed",
+    "benchmarking\\resources.py": "3944ceee8a782f7bb4421e622a13fa236669d93cb730f4c702fc4e8ca20e2491",
+    "benchmarking\\__init__.py": "da23fb7820a371ecd540ba7332a4ad5e31dd39be19464747cc3973b5c774bfa9",
+    "scripts\\process_benchmarks.py": "0840e83f2fffbe8bc135b90e54e12035c3509a61f0c7bb4436ea89171dfbbba3",
+    "scripts\\test_process_benchmarks.py": "6b9f5148039dd6354a787abdfdd4fa3322eb90372cbbef0606349df5b9180dab",
+    "scripts\\validate_results.py": "f504303e9277a81fd21051e3915a5d18687e9254a06fb23be23d9ab5f1ae0ad7"
+  },
+  "data_sha256": {
+    "benchmark1": "17935ac20fa840caa78227f157f14b034a3180459be1c02fc0563f4208827d72",
+    "benchmark2": "fcd76efced998ed94bd6cf604dc6b04a8b253b1d9fbd676ac406c46285c78fd6",
+    "benchmark3": "0d385b786d3b3f14ee34295c898242dd5f87c17e9f3cf6d192fd6a083f4748aa",
+    "benchmark4": "18c53fc9c56af4f263380203d17aabc920ed3d0165371b93d796e1e546bf7c76",
+    "benchmark5": "134e13a98c378e47933a9502539a6bc1407e72fbe2e991176b3ff9f4f901c120",
+    "benchmark6": "9f82234e570dc2f2f99403d26042ad997a1defc1f0f5d560539e58bd7a77a64c",
+    "benchmark7": "6191340464f45dab61552221b181a9c055905087024d0ea4992f6767a85864bc",
+    "benchmark8": "f1069a30914567212e2dc07bcec9ae2994e41a376298e5289f84e492944ae691",
+    "benchmark9": "589259dbf39a97d7be02453e791e7e15d91f4f5f5d9bced1ee1e434db80692fa",
+    "benchmark10": "575af8a97e7fa9f433b90733388a9521b73990f3508df68ae17b00a071603311"
+  },
+  "expected_runs": 180,
+  "completed_runs": 180,
+  "status": "complete",
+  "finished_at_utc": "2026-11-22T20:36:18.730374+00:00"
+}

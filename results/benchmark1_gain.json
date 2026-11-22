@@ -1,0 +1,88 @@
+{
+  "benchmark": 1,
+  "dataset": "Breast cancer",
+  "criterion": "gain",
+  "train_rows": 229,
+  "test_rows": 57,
+  "features": 50,
+  "classes": [
+    "no-recurrence-events",
+    "recurrence-events"
+  ],
+  "split": "stratified",
+  "preprocessing_notes": [
+    "All original feature values, including interval labels, are treated as categories."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 101,
+    "leaves": 51,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 0.06579280004370958,
+    "baseline_rss_mib": 30.74609375,
+    "sampled_peak_rss_mib": 31.33984375,
+    "sampled_increase_mib": 0.59375
+  },
+  "prediction": {
+    "seconds": 0.0008435000199824572,
+    "baseline_rss_mib": 31.328125,
+    "sampled_peak_rss_mib": 31.37109375,
+    "sampled_increase_mib": 0.04296875
+  },
+  "evaluation": {
+    "accuracy": 0.7017543859649122,
+    "macro_precision": 0.6173469387755102,
+    "macro_recall": 0.5676470588235294,
+    "macro_f1": 0.5644943820224719,
+    "confusion_matrix": [
+      [
+        36,
+        4
+      ],
+      [
+        13,
+        4
+      ]
+    ],
+    "precision_per_class": [
+      0.7346938775510204,
+      0.5
+    ],
+    "recall_per_class": [
+      0.9,
+      0.23529411764705882
+    ],
+    "f1_per_class": [
+      0.8089887640449438,
+      0.31999999999999995
+    ],
+    "support": [
+      40,
+      17
+    ]
+  },
+  "majority_baseline_accuracy": 0.7017543859649122,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-21T23:52:14.007610+00:00"
+}

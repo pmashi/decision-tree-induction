@@ -1,0 +1,240 @@
+{
+  "benchmark": 7,
+  "dataset": "Poker hand",
+  "criterion": "gini",
+  "train_rows": 25010,
+  "test_rows": 1000000,
+  "features": 30,
+  "classes": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "split": "official",
+  "preprocessing_notes": [
+    "Suits are categorical; ranks are ordered numeric values. Original card positions are retained."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 1831,
+    "leaves": 916,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 1.3674701999407262,
+    "baseline_rss_mib": 151.6953125,
+    "sampled_peak_rss_mib": 162.20703125,
+    "sampled_increase_mib": 10.51171875
+  },
+  "prediction": {
+    "seconds": 0.2598574999719858,
+    "baseline_rss_mib": 153.64453125,
+    "sampled_peak_rss_mib": 174.29296875,
+    "sampled_increase_mib": 20.6484375
+  },
+  "evaluation": {
+    "accuracy": 0.549158,
+    "macro_precision": 0.2864999370987269,
+    "macro_recall": 0.1491642769949818,
+    "macro_f1": 0.166192901438651,
+    "confusion_matrix": [
+      [
+        360867,
+        140118,
+        83,
+        141,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        232080,
+        185169,
+        4743,
+        506,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        18072,
+        28029,
+        1394,
+        127,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        8398,
+        11151,
+        334,
+        1238,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1482,
+        2377,
+        4,
+        22,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1209,
+        297,
+        0,
+        0,
+        0,
+        490,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        293,
+        1027,
+        28,
+        76,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        52,
+        142,
+        17,
+        19,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        7,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "precision_per_class": [
+      0.5797470021977457,
+      0.5027435605741793,
+      0.21111615932152053,
+      0.5814936589948333,
+      0.0,
+      0.98989898989899,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "recall_per_class": [
+      0.719993056788685,
+      0.43827189714507525,
+      0.02927218512452228,
+      0.05861464892760759,
+      0.0,
+      0.24549098196392785,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "f1_per_class": [
+      0.6423035335264513,
+      0.46829915972762276,
+      0.05141539880129092,
+      0.10649462365591397,
+      0.0,
+      0.39341629867523087,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "support": [
+      501209,
+      422498,
+      47622,
+      21121,
+      3885,
+      1996,
+      1424,
+      230,
+      12,
+      3
+    ]
+  },
+  "majority_baseline_accuracy": 0.501209,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-21T23:53:44.023819+00:00"
+}

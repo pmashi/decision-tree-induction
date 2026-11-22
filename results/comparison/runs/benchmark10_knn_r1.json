@@ -1,0 +1,331 @@
+{
+  "benchmark": 10,
+  "dataset": "Wine quality",
+  "criterion": "knn",
+  "model": "knn",
+  "family": "sklearn_baseline",
+  "repetition": 1,
+  "warnings": [],
+  "converged": true,
+  "solver_iterations": [],
+  "input_sha256": "575af8a97e7fa9f433b90733388a9521b73990f3508df68ae17b00a071603311",
+  "preprocessing_sha256": "017a78005ee2c2cce7d1272a9a03149bbdaf0801ad22fd9bb80decffd9d0e188",
+  "predictions_file": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison\\predictions\\benchmark10_knn_r1.npz",
+  "train_rows": 5197,
+  "test_rows": 1300,
+  "features": 14,
+  "classes": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "split": "stratified",
+  "preprocessing_notes": [
+    "Red and white wines are combined with a color feature. Original integer quality scores are classification labels."
+  ],
+  "config": {
+    "standardscaler": {
+      "implementation": "sklearn.preprocessing._data.StandardScaler",
+      "parameters": {
+        "copy": true,
+        "with_mean": true,
+        "with_std": true
+      }
+    },
+    "kneighborsclassifier": {
+      "implementation": "sklearn.neighbors._classification.KNeighborsClassifier",
+      "parameters": {
+        "algorithm": "brute",
+        "leaf_size": 30,
+        "metric": "euclidean",
+        "metric_params": null,
+        "n_jobs": 1,
+        "n_neighbors": 5,
+        "p": 2,
+        "weights": "uniform"
+      }
+    }
+  },
+  "tree": null,
+  "training": {
+    "seconds": 0.019323599990457296,
+    "baseline_rss_mib": 141.7734375,
+    "sampled_peak_rss_mib": 142.1640625,
+    "sampled_increase_mib": 0.390625
+  },
+  "prediction": {
+    "seconds": 0.025820700102485716,
+    "baseline_rss_mib": 142.16015625,
+    "sampled_peak_rss_mib": 142.7890625,
+    "sampled_increase_mib": 0.62890625
+  },
+  "evaluation": {
+    "accuracy": 0.5715384615384616,
+    "macro_precision": 0.449098467179323,
+    "macro_recall": 0.2943969984481364,
+    "macro_f1": 0.31926827254230494,
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        4,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        26,
+        13,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        13,
+        275,
+        130,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        147,
+        360,
+        50,
+        6,
+        0
+      ],
+      [
+        0,
+        0,
+        19,
+        93,
+        101,
+        3,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        16,
+        16,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "precision_per_class": [
+      1.0,
+      0.10526315789473684,
+      0.580168776371308,
+      0.5863192182410424,
+      0.5642458100558659,
+      0.3076923076923077,
+      0.0
+    ],
+    "recall_per_class": [
+      0.16666666666666666,
+      0.046511627906976744,
+      0.6425233644859814,
+      0.6349206349206349,
+      0.4675925925925926,
+      0.10256410256410256,
+      0.0
+    ],
+    "f1_per_class": [
+      0.2857142857142857,
+      0.06451612903225806,
+      0.6097560975609757,
+      0.6096528365791702,
+      0.5113924050632911,
+      0.15384615384615385,
+      0.0
+    ],
+    "support": [
+      6,
+      43,
+      428,
+      567,
+      216,
+      39,
+      1
+    ]
+  },
+  "training_evaluation": {
+    "accuracy": 0.7063690590725419,
+    "macro_precision": 0.5604681400865853,
+    "macro_recall": 0.4098500850073073,
+    "macro_f1": 0.45259739765343227,
+    "confusion_matrix": [
+      [
+        4,
+        1,
+        8,
+        9,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        52,
+        67,
+        49,
+        4,
+        0,
+        0
+      ],
+      [
+        2,
+        22,
+        1314,
+        344,
+        26,
+        2,
+        0
+      ],
+      [
+        1,
+        14,
+        351,
+        1773,
+        125,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        61,
+        309,
+        483,
+        10,
+        0
+      ],
+      [
+        0,
+        0,
+        4,
+        55,
+        50,
+        45,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0
+      ]
+    ],
+    "precision_per_class": [
+      0.5,
+      0.5842696629213483,
+      0.72797783933518,
+      0.6977567886658795,
+      0.6989869753979739,
+      0.7142857142857143,
+      0.0
+    ],
+    "recall_per_class": [
+      0.16666666666666666,
+      0.30057803468208094,
+      0.7684210526315789,
+      0.7814014984574702,
+      0.5596755504055619,
+      0.2922077922077922,
+      0.0
+    ],
+    "f1_per_class": [
+      0.25,
+      0.3969465648854962,
+      0.7476529160739688,
+      0.7372141372141371,
+      0.6216216216216215,
+      0.4147465437788018,
+      0.0
+    ],
+    "support": [
+      24,
+      173,
+      1710,
+      2269,
+      863,
+      154,
+      4
+    ]
+  },
+  "majority_baseline_accuracy": 0.43615384615384617,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "batch_size": 2048,
+    "native_threads": 1,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "version": "0.3.34.0.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "timing": "perf_counter wall time; includes model-specific scaling and prediction batching; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-22T20:35:52.502419+00:00"
+}

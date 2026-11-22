@@ -1,0 +1,292 @@
+{
+  "benchmark": 5,
+  "dataset": "Human activity recognition",
+  "criterion": "knn",
+  "model": "knn",
+  "family": "sklearn_baseline",
+  "repetition": 1,
+  "warnings": [],
+  "converged": true,
+  "solver_iterations": [],
+  "input_sha256": "134e13a98c378e47933a9502539a6bc1407e72fbe2e991176b3ff9f4f901c120",
+  "preprocessing_sha256": "416cad9ba32750c36e4d348bea8e2119f093ddc24377cc377c69a01ff91312b0",
+  "predictions_file": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison\\predictions\\benchmark5_knn_r1.npz",
+  "train_rows": 7352,
+  "test_rows": 2947,
+  "features": 561,
+  "classes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6"
+  ],
+  "split": "official",
+  "preprocessing_notes": [
+    "Uses the 561 supplied engineered features; subject IDs are metadata, not predictors. Original feature normalization is retained."
+  ],
+  "config": {
+    "standardscaler": {
+      "implementation": "sklearn.preprocessing._data.StandardScaler",
+      "parameters": {
+        "copy": true,
+        "with_mean": true,
+        "with_std": true
+      }
+    },
+    "kneighborsclassifier": {
+      "implementation": "sklearn.neighbors._classification.KNeighborsClassifier",
+      "parameters": {
+        "algorithm": "brute",
+        "leaf_size": 30,
+        "metric": "euclidean",
+        "metric_params": null,
+        "n_jobs": 1,
+        "n_neighbors": 5,
+        "p": 2,
+        "weights": "uniform"
+      }
+    }
+  },
+  "tree": null,
+  "training": {
+    "seconds": 0.05005329998675734,
+    "baseline_rss_mib": 164.625,
+    "sampled_peak_rss_mib": 200.22265625,
+    "sampled_increase_mib": 35.59765625
+  },
+  "prediction": {
+    "seconds": 0.5430841000052169,
+    "baseline_rss_mib": 180.64453125,
+    "sampled_peak_rss_mib": 187.734375,
+    "sampled_increase_mib": 7.08984375
+  },
+  "evaluation": {
+    "accuracy": 0.8802171700033933,
+    "macro_precision": 0.8896991889132972,
+    "macro_recall": 0.874630630627672,
+    "macro_f1": 0.8766075990140535,
+    "confusion_matrix": [
+      [
+        483,
+        4,
+        9,
+        0,
+        0,
+        0
+      ],
+      [
+        43,
+        425,
+        3,
+        0,
+        0,
+        0
+      ],
+      [
+        61,
+        54,
+        305,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        373,
+        114,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        35,
+        497,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        15,
+        11,
+        511
+      ]
+    ],
+    "precision_per_class": [
+      0.8228279386712095,
+      0.8762886597938144,
+      0.9621451104100947,
+      0.8817966903073287,
+      0.7990353697749196,
+      0.9961013645224172
+    ],
+    "recall_per_class": [
+      0.9737903225806451,
+      0.9023354564755839,
+      0.7261904761904762,
+      0.7596741344195519,
+      0.9342105263157895,
+      0.9515828677839852
+    ],
+    "f1_per_class": [
+      0.89196675900277,
+      0.8891213389121339,
+      0.8276797829036635,
+      0.8161925601750547,
+      0.8613518197573656,
+      0.9733333333333333
+    ],
+    "support": [
+      496,
+      471,
+      420,
+      491,
+      532,
+      537
+    ]
+  },
+  "training_evaluation": {
+    "accuracy": 0.9828618063112078,
+    "macro_precision": 0.9841833959142766,
+    "macro_recall": 0.9834942845745275,
+    "macro_f1": 0.98373308384541,
+    "confusion_matrix": [
+      [
+        1224,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        1071,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        6,
+        976,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1207,
+        76,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        30,
+        1344,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        2,
+        0,
+        1404
+      ]
+    ],
+    "precision_per_class": [
+      0.9951219512195122,
+      0.9907493061979649,
+      1.0,
+      0.9741727199354318,
+      0.9464788732394366,
+      0.9985775248933144
+    ],
+    "recall_per_class": [
+      0.99836867862969,
+      0.9981360671015843,
+      0.9898580121703854,
+      0.9385692068429238,
+      0.9781659388646288,
+      0.997867803837953
+    ],
+    "f1_per_class": [
+      0.996742671009772,
+      0.9944289693593314,
+      0.9949031600407746,
+      0.9560396039603961,
+      0.9620615604867573,
+      0.9982225382154283
+    ],
+    "support": [
+      1226,
+      1073,
+      986,
+      1286,
+      1374,
+      1407
+    ]
+  },
+  "majority_baseline_accuracy": 0.18221920597217509,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "batch_size": 2048,
+    "native_threads": 1,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "version": "0.3.34.0.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "timing": "perf_counter wall time; includes model-specific scaling and prediction batching; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-22T20:25:29.127011+00:00"
+}

@@ -1,0 +1,208 @@
+{
+  "benchmark": 8,
+  "dataset": "Steel industry",
+  "criterion": "logistic_regression",
+  "model": "logistic_regression",
+  "family": "sklearn_baseline",
+  "repetition": 1,
+  "warnings": [],
+  "converged": true,
+  "solver_iterations": [
+    65
+  ],
+  "input_sha256": "f1069a30914567212e2dc07bcec9ae2994e41a376298e5289f84e492944ae691",
+  "preprocessing_sha256": "b2aae88cf7efc03ab480334827feb09971f919792fba16e7ddcfb7afe77c7496",
+  "predictions_file": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison\\predictions\\benchmark8_logistic_regression_r1.npz",
+  "train_rows": 28032,
+  "test_rows": 7008,
+  "features": 18,
+  "classes": [
+    "Light_Load",
+    "Maximum_Load",
+    "Medium_Load"
+  ],
+  "split": "chronological",
+  "preprocessing_notes": [
+    "Rows sorted by timestamp, then split chronologically. Timestamp excluded; row indices refer to this sorted order.",
+    "This classifies load type using same-time measurements, including Usage_kWh; it is not a future-load forecast."
+  ],
+  "config": {
+    "standardscaler": {
+      "implementation": "sklearn.preprocessing._data.StandardScaler",
+      "parameters": {
+        "copy": true,
+        "with_mean": true,
+        "with_std": true
+      }
+    },
+    "logisticregression": {
+      "implementation": "sklearn.linear_model._logistic.LogisticRegression",
+      "parameters": {
+        "C": 1.0,
+        "class_weight": null,
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 5000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "lbfgs",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      }
+    }
+  },
+  "tree": null,
+  "training": {
+    "seconds": 0.17484189989045262,
+    "baseline_rss_mib": 144.609375,
+    "sampled_peak_rss_mib": 148.66015625,
+    "sampled_increase_mib": 4.05078125
+  },
+  "prediction": {
+    "seconds": 0.0014949000906199217,
+    "baseline_rss_mib": 145.34375,
+    "sampled_peak_rss_mib": 145.3828125,
+    "sampled_increase_mib": 0.0390625
+  },
+  "evaluation": {
+    "accuracy": 0.6799372146118722,
+    "macro_precision": 0.5989494723960715,
+    "macro_recall": 0.6027888107934417,
+    "macro_f1": 0.5978521851027637,
+    "confusion_matrix": [
+      [
+        3244,
+        141,
+        319
+      ],
+      [
+        96,
+        719,
+        601
+      ],
+      [
+        124,
+        962,
+        802
+      ]
+    ],
+    "precision_per_class": [
+      0.9364896073903002,
+      0.3946212952799122,
+      0.4657375145180023
+    ],
+    "recall_per_class": [
+      0.8758099352051836,
+      0.507768361581921,
+      0.4247881355932203
+    ],
+    "f1_per_class": [
+      0.9051339285714286,
+      0.44410129709697344,
+      0.4443213296398892
+    ],
+    "support": [
+      3704,
+      1416,
+      1888
+    ]
+  },
+  "training_evaluation": {
+    "accuracy": 0.782462899543379,
+    "macro_precision": 0.7379212155419133,
+    "macro_recall": 0.7447420979022397,
+    "macro_f1": 0.7401166381034413,
+    "confusion_matrix": [
+      [
+        12906,
+        426,
+        1036
+      ],
+      [
+        314,
+        4210,
+        1332
+      ],
+      [
+        1010,
+        1980,
+        4818
+      ]
+    ],
+    "precision_per_class": [
+      0.9069571328179902,
+      0.6363361547762999,
+      0.67047035903145
+    ],
+    "recall_per_class": [
+      0.8982461024498887,
+      0.7189207650273224,
+      0.6170594262295082
+    ],
+    "f1_per_class": [
+      0.902580600041961,
+      0.6751122514432327,
+      0.64265706282513
+    ],
+    "support": [
+      14368,
+      5856,
+      7808
+    ]
+  },
+  "majority_baseline_accuracy": 0.5285388127853882,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "batch_size": 2048,
+    "native_threads": 1,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "version": "0.3.34.0.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "timing": "perf_counter wall time; includes model-specific scaling and prediction batching; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-22T20:34:37.091821+00:00"
+}

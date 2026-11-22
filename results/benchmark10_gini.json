@@ -1,0 +1,168 @@
+{
+  "benchmark": 10,
+  "dataset": "Wine quality",
+  "criterion": "gini",
+  "train_rows": 5197,
+  "test_rows": 1300,
+  "features": 14,
+  "classes": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "split": "stratified",
+  "preprocessing_notes": [
+    "Red and white wines are combined with a color feature. Original integer quality scores are classification labels."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 1219,
+    "leaves": 610,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 0.5126304000150412,
+    "baseline_rss_mib": 31.28125,
+    "sampled_peak_rss_mib": 33.82421875,
+    "sampled_increase_mib": 2.54296875
+  },
+  "prediction": {
+    "seconds": 0.00435890001244843,
+    "baseline_rss_mib": 32.7421875,
+    "sampled_peak_rss_mib": 32.890625,
+    "sampled_increase_mib": 0.1484375
+  },
+  "evaluation": {
+    "accuracy": 0.563076923076923,
+    "macro_precision": 0.29151774888913057,
+    "macro_recall": 0.26898147300414926,
+    "macro_f1": 0.27525241833984243,
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        4,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        29,
+        9,
+        3,
+        1,
+        0
+      ],
+      [
+        2,
+        10,
+        282,
+        123,
+        11,
+        0,
+        0
+      ],
+      [
+        3,
+        13,
+        148,
+        343,
+        53,
+        7,
+        0
+      ],
+      [
+        1,
+        4,
+        18,
+        87,
+        101,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        19,
+        13,
+        5,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    "precision_per_class": [
+      0.0,
+      0.03571428571428571,
+      0.5838509316770186,
+      0.5883361921097771,
+      0.554945054945055,
+      0.2777777777777778,
+      0.0
+    ],
+    "recall_per_class": [
+      0.0,
+      0.023255813953488372,
+      0.6588785046728972,
+      0.6049382716049383,
+      0.4675925925925926,
+      0.1282051282051282,
+      0.0
+    ],
+    "f1_per_class": [
+      0.0,
+      0.02816901408450704,
+      0.6190998902305159,
+      0.5965217391304348,
+      0.5075376884422111,
+      0.17543859649122806,
+      0.0
+    ],
+    "support": [
+      6,
+      43,
+      428,
+      567,
+      216,
+      39,
+      1
+    ]
+  },
+  "majority_baseline_accuracy": 0.43615384615384617,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-21T23:53:48.382186+00:00"
+}

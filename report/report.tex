@@ -1,0 +1,770 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,array}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\title{Decision Tree Induction for Classification\\
+\large Implementation, Correctness Validation, and Comparison on Ten Benchmarks}
+% Fill in the assignment-information fields below before submitting.
+\author{Pei Ma\\[0.4em]\large ESE 327: Fundamental Algorithms in Machine Learning Systems}
+\date{November 22, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A binary decision-tree tree classifier is implemented using Python and NumPy 
+using three metrics: information gain, gain ratio, and Gini impurity reduction. 
+The custom implementation was compared with logistic regression, five-nearest 
+neighbors, and Guassian naive Bayes classification algorithms on ten prepared 
+benchmark datasets.  
+Each of the 60 dataset--model
+configurations was run in a fresh process three times, producing 180 measured
+runs. 
+Validation combines hand-calculated examples, 20 automated tests, and an
+audit of every saved run against its predictions and source data. 
+\end{abstract}
+
+\tableofcontents
+\clearpage
+
+\section{Objective and implementation scope}
+The objective is to implement decision-tree induction for classification,
+experiment with three split metrics, and compare the resulting classifier with
+three other classification algorithms. Information gain, gain ratio,
+and Gini are configurations of the same custom tree implementation; they are
+not counted as the three additional algorithms. The additional methods are
+logistic regression, five-nearest neighbors, and Gaussian naive Bayes, 
+using scikit-learn implementations.
+
+The tree's node representation, exact threshold search, recursive construction,
+and prediction traversal were implemented in this project. NumPy supplies array
+operations; no library decision-tree training routine is called. All algorithms
+receive the same saved training and test partitions. The work runs on the computer 
+processor.
+
+The experiment results reported here come exclusively from
+\code{results/comparison/}, not the earlier tree-only pilot results. The trees
+were rerun alongside the baselines with the same import, threading, batching,
+and measurement policy. Twenty tests and the saved-results audit passed when
+preparing this report. These provide concrete correctness evidence, not a
+formal proof that arbitrary inputs cannot expose a defect.
+
+\section{Decision-tree induction algorithm}
+\subsection{Representation and prediction}
+Each node stores its training-sample count and majority-class prediction.
+An internal node additionally stores a feature index $j$, threshold $t$, and
+left/right children. A row follows the left branch when $x_j\leq t$ and the
+right branch otherwise. A leaf returns its majority class. Original labels are
+mapped to consecutive integers during training and mapped back for prediction.
+Class-count ties choose the first sorted class, making the outcome reproducible.
+
+The processed input is numeric. Categorical features have already been expanded
+into binary one-hot columns. Thus, a categorical indicator is split like any
+other numeric feature, generally at $0.5$. This is a binary threshold tree,
+not a native multiway categorical tree. Although the criteria are standard
+decision-tree quantities, the implementation is not a complete
+reproduction of an established tree-learning system: it has no post-pruning,
+and its gain-ratio configuration uses the ratio directly without additional
+candidate-selection safeguards.
+
+\subsection{How the split criteria choose a branch}
+A split criterion measures how well a proposed split separates the classes.
+A useful split creates child groups with clearer class membership than the
+parent group. All three options examine the same candidate thresholds; only
+the scoring rule changes.
+
+\begin{description}
+\item[Information gain.] Entropy describes how mixed the class labels are
+within a group. It is zero when every example belongs to the same class and
+increases when the labels are more evenly mixed. Information gain measures how
+much a split reduces that uncertainty. The tree chooses the split with the
+largest reduction, accounting for the number of examples in each child.
+\item[Gain ratio.] Gain ratio starts with information gain and adjusts it
+using a quantity called split information, which depends on how examples are
+distributed between the two branches. This changes the relative scores of
+balanced and uneven splits. A high ratio does not necessarily mean the largest
+absolute reduction in uncertainty, so the implementation also requires a
+positive information gain before accepting a split.
+\item[Gini reduction.] Gini impurity is another measure of class mixing: it is
+zero for a group containing only one class and larger for a mixed group.
+The tree compares the parent's impurity with the combined impurity of its two
+children, weighted by their sizes, and chooses the largest decrease.
+\end{description}
+
+These criteria offer different ways to rank a split, rather than different
+training pipelines. The experiment keeps preprocessing, candidate thresholds,
+and stopping rules the same so that their effects can be compared directly.
+The worked examples later in the report show the expected scores on small
+problems without requiring a full mathematical derivation here.
+
+\subsection{Exact candidate search}
+At each node, the algorithm sorts each feature and considers thresholds
+between distinct adjacent values. Cumulative class counts let it score all
+candidates efficiently. It rejects splits that leave fewer than two rows in
+a child or fail to reduce impurity, then selects the highest-scoring candidate.
+Ties follow a fixed feature and threshold order. Thresholds use midpoints,
+with a floating-point safeguard to keep adjacent values on the correct sides.
+
+\subsection{Construction and stopping rules}
+The following is the actual \code{_build} method from
+\code{algorithms/decision_tree.py}. It creates a majority-class node, checks
+whether splitting should stop, and otherwise recursively builds its children.
+
+\begingroup\scriptsize
+\begin{verbatim}
+def _build(self, indices, depth):
+    """Recursively partition rows until a stopping condition produces a leaf."""
+    counts = np.bincount(self._y[indices], minlength=len(self.classes_))
+    
+    node = Node(prediction=int(np.argmax(counts)), samples=len(indices))
+    self.node_count_ += 1
+    self.depth_ = max(self.depth_, depth)
+    stop = (np.count_nonzero(counts) == 1 or
+            len(indices) < max(self.min_samples_split, 2 * self.min_samples_leaf) or
+            (self.max_depth is not None and depth >= self.max_depth))
+    split = None if stop else self._best_split(indices, counts)
+    
+    if split is None:
+        self.leaf_count_ += 1
+        return node
+    node.feature, node.threshold = split
+    goes_left = self._X[indices, node.feature] <= node.threshold
+    node.left = self._build(indices[goes_left], depth + 1)
+    node.right = self._build(indices[~goes_left], depth + 1)
+    return node
+\end{verbatim}
+\endgroup
+
+The reported settings allow a maximum depth of 12 and require at least two
+rows per leaf, so a node needs at least four rows to split. Pure nodes,
+nodes at the depth limit, and nodes without an improving split remain leaves.
+The \code{_best_split} method returns the chosen feature and threshold, or
+\code{None} if no valid improvement exists. Rows at or below the threshold
+go left; the others go right. Each decision is chosen greedily, so the
+result is not guaranteed to be the best possible complete tree.
+
+\subsection{Computational cost and software structure}
+For a node with $m$ examples, $d$ features and $C$ classes, sorting costs
+$O(dm\log m)$ and cumulative-count scoring costs $O(dmC)$. For maximum depth
+$D$, an upper bound from summing across levels is
+$O\bigl(dD(n\log n+nC)\bigr)$. This is a bound for the implemented repeated-sort
+search, not a claim that every tree requires that much work. A prediction visits
+at most $D$ internal nodes. Brute-force five-nearest neighbors, by contrast, compares a query with
+the stored training rows, so its distance computation grows with the training
+set size as well as the feature count.
+
+The count workspace for one feature is $O(mC)$, while the training matrix occupies
+$O(nd)$. Tree storage grows with the number of nodes. Recursive row-index arrays
+and temporary sorting/scoring arrays add memory; process resident process memory also includes the
+Python interpreter, imported libraries and both data partitions. Consequently,
+observed resident process memory must not be equated to the node-storage complexity.
+
+\begin{table}[htbp]\centering\small
+\begin{tabular}{@{}lp{3.65in}@{}}\toprule
+File & Responsibility\\\midrule
+\code{algorithms/decision_tree.py} & Node structure, exact split search, construction and prediction.\\
+\code{algorithms/split_criteria.py} & Entropy, information gain, gain ratio and Gini reduction.\\
+\code{algorithms/baselines.py} & Library baseline factories and parameter descriptions.\\
+\code{benchmarking/resources.py} & Isolated worker, timing and sampled process memory.\\
+\code{benchmarking/evaluation.py} & Prediction scores and confusion matrices.\\
+\code{benchmarking/reporting.py} & Repeat aggregation, tables and charts.\\
+\code{main.py} & Experiment orchestration and checkpointed artifacts.\\
+\bottomrule\end{tabular}
+\caption{Implementation organization.}
+\end{table}
+
+\section{Datasets and preprocessing}
+Table~\ref{tab:datasets} summarizes the ten prepared benchmarks. Raw files
+are stored in \code{data/raw/}; processed inputs, labels, and saved split
+indices are stored in \code{data/processed/}. Feature counts reflect preprocessing.
+
+\begin{table}[htbp]\centering\scriptsize
+\input{tables/datasets.tex}
+\caption{Prepared benchmark sizes. $d$: predictors after encoding; $C$: classes.
+``Official'' preserves the supplied training/test partition.}
+\label{tab:datasets}
+\end{table}
+
+\subsection{Shared preparation and leakage controls}
+Missing numeric values use the training median, with zero as a fallback.
+Categorical values become indicator columns using training categories;
+missing or unseen categories receive a dedicated indicator. Labels are
+encoded as integers, and preprocessing uses only training data to avoid
+learning from the test set.
+
+Most datasets use a reproducible, approximately 80/20 split that preserves
+class proportions (seed 42). Human Activity Recognition, Japanese Vowels,
+and Poker retain their supplied splits; Steel Industry uses the earlier
+80\% of rows for training and the later rows for testing. Human Activity
+Recognition subjects do not overlap between the two groups. Source duplicate
+rows are retained, and test results are not used to tune model parameters.
+
+\subsection{Dataset-specific decisions}
+\begin{description}
+\item[Benchmark 1: Breast Cancer.] Predict recurrence using nine categorical predictors,
+including the original interval-valued labels. The source documentation credits
+M.~Zwitter and M.~Soklic at the University Medical Centre, Institute of Oncology,
+Ljubljana; the supplied \code{breast-cancer.names} file contains the attribution.
+\item[Benchmark 2: Cervical Cancer.] Predict \code{Biopsy}. The other screening outcomes
+(Hinselmann, Schiller, Citology) and four \code{Dx} diagnosis columns are removed
+to avoid using diagnostic results as risk predictors. Twenty-eight features remain.
+\item[Benchmark 3: Computer Hardware.] This source is a regression dataset.
+Published relative performance is converted to four fixed classes:
+$\text{performance}\leq20$, $20<\text{performance}\leq100$, $100<\text{performance}\leq200$,
+and $\text{performance}>200$. Only the six hardware measurements are predictors;
+vendor, model identifier, published relative performance and estimated relative performance are excluded.
+This is a project-specific classification adaptation, not the original standard
+regression task. Its acceptability as a classification benchmark is a limitation.
+\item[Benchmark 4: Contraceptive Method Choice.] Predict the original three method classes.
+Age and number of children are numeric; demographic category codes are one-hot encoded.
+\item[Benchmark 5: Human Activity Recognition.] Use the supplied 561 engineered features and six activity labels.
+Subject IDs are metadata, not predictors. Original source normalization is retained.
+\item[Benchmark 6: Japanese Vowels.] Each recording is one example, with speaker identity
+as its label. The source has 270 training and 370 test recordings from nine
+speakers. Each recording becomes the mean, population standard
+deviation, minimum and maximum of each of 12 coefficients, plus frame count:
+$4\cdot12+1=49$ features. Temporal order is discarded. Labels follow the supplied
+per-speaker block counts, rather than treating individual frames as independent examples.
+\item[Benchmark 7: Poker Hand.] Preserve all 25,010 training and 1,000,000 test examples.
+Suits are categorical, ranks numeric, and original card positions are preserved.
+The label is the original ten-class hand category.
+\item[Benchmark 8: Steel Industry.] Predict \code{Load_Type}; remove the timestamp after
+sorting, and encode calendar categories. Same-time energy measurements, including
+\code{Usage_kWh}, remain. This is load-type classification, not future-load forecasting.
+\item[Benchmark 9: Wine.] Predict the three cultivars from 13 chemical measurements.
+\item[Benchmark 10: Wine Quality.] Combine red and white wines, retain a color indicator,
+and treat the original quality score as a seven-class label. This is distinct
+from predicting a continuous score or a thresholded good/bad label.
+\end{description}
+
+\section{Comparison classifiers}
+\subsection{Logistic regression}
+Logistic regression learns a weighted combination of the input features and
+uses it to estimate the probability of each class. It predicts the class with
+the highest probability. This gives a simple linear decision boundary, unlike
+the tree's sequence of threshold decisions.
+
+Before training, each feature is standardized using only the training data so
+that different measurement scales do not dominate the model. The parameter
+$C=1$ controls regularization: smaller values penalize large feature weights
+more strongly, while larger values allow a closer fit to the training data.
+The solver uses a limited-memory optimization method. The maximum of 5,000
+iterations limits its work, and tolerance 0.0001 determines when it can stop
+because the optimization is sufficiently close to a solution.
+
+\subsection{Five-nearest neighbors}
+Five-nearest neighbors stores the training examples. To classify a new example,
+it finds the five closest training examples and predicts their most common
+class. Each of those five neighbors has one vote.
+
+The neighbor count is set to five; a smaller count makes predictions more
+sensitive to individual examples, while a larger count smooths local decisions.
+Closeness is measured by ordinary Euclidean distance after standardizing the
+features using training data. The search checks all training examples rather
+than using a search tree, and it uses one worker. This makes training simple
+but can make prediction expensive on large datasets.
+
+\subsection{Gaussian naive Bayes}
+Gaussian naive Bayes estimates how each feature is distributed within each
+class, assumes a bell-shaped distribution for numeric features, and combines
+this information with each class's frequency to choose the most likely class.
+It treats the features as independent once the class is known, which keeps
+training and prediction inexpensive.
+
+The variance-smoothing parameter is set to $10^{-9}$. It adds a small amount,
+scaled to the largest overall feature variance, to the estimated class variances
+so that nearly constant features do not cause unstable probability calculations.
+This classifier uses the prepared features without additional scaling. Its
+bell-shaped and independence assumptions are imperfect for binary indicators
+and correlated measurements.
+
+\section{Correctness validation}
+\subsection{Worked example using actual Wine data}\label{sec:realexample}
+This example will use data taken from 
+\code{data/raw/benchmark9/wine.data}. 
+The source row number refers to which line the data is taken from the file, 
+and has nothing to do with the data values. 
+\textbf{Step 1: read the raw values.}
+\input{tables/wine_example_raw.tex}
+
+The first value in each line is the original cultivar class. The remaining
+13 values are measurements, in this order: alcohol, malic acid, ash,
+alcalinity of ash, magnesium, total phenols, flavonoids, nonflavanoid phenols,
+proanthocyanins, color intensity, hue, the optical-density ratio, and proline.
+
+\textbf{Step 2: assign rows to training or testing.}
+Use six of the selected rows for training and reserve the other two for testing;
+the processed table keeps the cultivar label and the flavonoid measurement
+from each raw row, together with its assigned use.
+
+\begin{table}[!ht]\centering\small
+\input{tables/wine_example_rows.tex}
+\caption{Processed data for the worked example: one numeric predictor, its
+original class label, and the row's assigned use.}
+\label{tab:realrows}
+\end{table}
+
+\textbf{Step 3: sort the training rows by flavonoids.}
+Only the six training rows participate in building the tree. Sorting them
+by increasing flavonoid measurement gives the following order; the two testing
+rows are set aside until the final tree is ready.
+
+\begin{center}\small
+\begin{tabular}{@{}rrr@{}}\toprule
+Source row & Flavonoids & Cultivar\\\midrule
+133 & 1.09 & 3\\
+132 & 1.22 & 3\\
+131 & 1.25 & 3\\
+2 & 2.76 & 1\\
+1 & 3.06 & 1\\
+3 & 3.24 & 1\\
+\bottomrule\end{tabular}
+\end{center}
+
+\textbf{Step 4: calculate the initial entropy.}
+There are three examples of cultivar 1 and three of cultivar 3, so each
+class accounts for half of the training rows. The initial entropy is
+\[
+-\frac{3}{6}\log_2\!\left(\frac{3}{6}\right)
+-\frac{3}{6}\log_2\!\left(\frac{3}{6}\right)=1.
+\]
+This is the uncertainty before making any split. A useful split reduces that
+uncertainty by placing examples of the same cultivar together.
+
+\textbf{Step 5: form candidate thresholds and trial branches.}
+Each candidate threshold is the midpoint between two adjacent distinct
+measurements. The five midpoints are 1.155, 1.235, 2.005, 2.910, and 3.150.
+The implementation requires at least two training examples in each leaf,
+so 1.155 and 3.150 are rejected: each would leave one example on a side.
+For every remaining threshold, a trial decision node sends measurements
+at most the threshold to the left and larger measurements to the right.
+
+For example, threshold 1.235 sends rows 133 and 132 to the left, both
+cultivar 3. The right branch contains rows 131, 2, 1, and 3: one cultivar 3
+and three cultivar 1 examples. The left entropy is zero and the right
+entropy is approximately 0.8113. Weighting these by their row counts gives
+$(2/6)(0)+(4/6)(0.8113)=0.5409$, so the information gain is
+$1-0.5409=0.4591$.
+
+The midpoint between 1.25 and 2.76 is 2.005. This trial split places all
+three cultivar 3 examples on the left and all three cultivar 1 examples
+on the right. Both branch entropies are zero, so the weighted entropy is
+zero and the information gain is $1-0=1$.
+
+\textbf{Step 6: compare candidates and choose the best threshold.}
+Table~\ref{tab:realsplits} compares all three valid candidates. The counts
+in each branch are listed as (cultivar 1, cultivar 3). The information-gain
+version selects the greatest reduction in entropy. The other two implemented
+criteria are also shown to check that they select the same split.
+
+
+
+The three columns measure how well a candidate separates the training
+classes; they are split-selection criteria rather than prediction-accuracy
+measures.
+\begin{description}
+\item[Information gain.] This measures the decrease in entropy after splitting,
+with each child's entropy weighted by its share of the training rows.
+A larger gain means less class uncertainty remains. Thresholds 1.235 and
+2.910 each leave one mixed branch and score 0.4591. Threshold 2.005 makes
+both branches pure, reducing entropy from 1 to zero and giving gain 1.
+\item[Gain ratio.] This divides information gain by split information, which
+measures how the rows are distributed between the branches. It adjusts the
+gain for the sizes of the resulting groups. The two outer candidates divide
+the rows into groups of two and four, giving split information about 0.9183
+and gain ratio $0.4591/0.9183\approx0.5$. Threshold 2.005 creates two groups
+of three, giving split information 1 and gain ratio 1. Larger ratios are
+preferred.
+\item[Gini index.] Also called Gini impurity, this measures class mixing in a
+node: zero means every row has the same class. The initial index is 0.5
+because the six training rows are evenly divided between the two cultivars.
+The table reports the \emph{reduction} in the index, so larger values are
+better. At either outer candidate, the weighted child index is 0.25 and
+the reduction is $0.5-0.25=0.25$. At 2.005, both child indices are zero,
+so the reduction is $0.5-0=0.5$.
+\end{description}
+\textbf{Calculating the metrics.}
+The following substitutions use only the six training rows. Entropy uses
+base-two logarithms, and a class with zero rows contributes zero. A pure
+branch therefore has entropy zero. Gini impurity is one minus the sum of
+the squared class proportions. The parent values are
+\[
+\text{Parent entropy}=-\tfrac36\log_2(\tfrac36)-\tfrac36\log_2(\tfrac36)=1,
+\qquad
+\text{Parent Gini}=1-(\tfrac36)^2-(\tfrac36)^2=0.5.
+\]
+All displayed decimals are rounded; the scores use unrounded values.
+
+\textit{Threshold 1.235.}
+The left counts are (0, 2), so that branch is pure. The right counts are
+(3, 1), so its class proportions are $3/4$ and $1/4$. First calculate the
+child entropies and weight them by the branch sizes:
+\begin{align*}
+\text{Left entropy} &= 0,\\
+\text{Right entropy} &= -\tfrac34\log_2(\tfrac34)-\tfrac14\log_2(\tfrac14)
+\approx 0.811278,\\
+\text{Weighted entropy} &= \tfrac26(0)+\tfrac46(0.811278)\approx0.540852,\\
+\text{Information gain} &= 1-0.540852\approx\boxed{0.4591}.
+\end{align*}
+Split information uses the fractions of rows sent to the branches, $2/6$
+and $4/6$, rather than the class proportions inside a branch:
+\begin{align*}
+\text{Split information} &= -\tfrac26\log_2(\tfrac26)-\tfrac46\log_2(\tfrac46)
+\approx0.918296,\\
+\text{Gain ratio} &= \frac{0.459148}{0.918296}=\boxed{0.5000}.
+\end{align*}
+For the Gini calculation, use the same class proportions as for entropy:
+\begin{align*}
+\text{Left Gini} &= 1-0^2-1^2=0,\\
+\text{Right Gini} &= 1-(\tfrac34)^2-(\tfrac14)^2=0.375,\\
+\text{Weighted Gini} &= \tfrac26(0)+\tfrac46(0.375)=0.25,\\
+\text{Gini impurity reduction} &= 0.5-0.25=\boxed{0.2500}.
+\end{align*}
+
+\textit{Threshold 2.005.}
+The counts are (0, 3) on the left and (3, 0) on the right. Both branches
+are pure, so their entropies and Gini impurities are all zero. Each branch
+receives three of the six rows:
+\begin{align*}
+\text{Information gain} &= 1-[\tfrac36(0)+\tfrac36(0)]=\boxed{1.0000},\\
+\text{Split information} &= -\tfrac36\log_2(\tfrac36)-\tfrac36\log_2(\tfrac36)=1,\\
+\text{Gain ratio} &= 1/1=\boxed{1.0000},\\
+\text{Gini impurity reduction} &= 0.5-[\tfrac36(0)+\tfrac36(0)]=\boxed{0.5000}.
+\end{align*}
+
+\textit{Threshold 2.910.}
+The left counts are (1, 3), with proportions $1/4$ and $3/4$, while the
+right counts are (2, 0), a pure branch. The left entropy is 0.811278 and
+its Gini impurity is 0.375, by the same calculations as the mixed branch
+above with the class proportions reversed. Now four rows go left and two
+go right:
+\begin{align*}
+\text{Information gain} &= 1-[\tfrac46(0.811278)+\tfrac26(0)]\approx\boxed{0.4591},\\
+\text{Split information} &= -\tfrac46\log_2(\tfrac46)-\tfrac26\log_2(\tfrac26)
+\approx0.918296,\\
+\text{Gain ratio} &= \frac{0.459148}{0.918296}=\boxed{0.5000},\\
+\text{Gini impurity reduction} &= 0.5-[\tfrac46(0.375)+\tfrac26(0)]=\boxed{0.2500}.
+\end{align*}
+These calculations produce the three rows of Table~\ref{tab:realsplits}.
+
+\begin{table}[!ht]\centering\small
+\input{tables/wine_example_splits.tex}
+\caption{Candidate thresholds evaluated using only the six training rows.}
+\label{tab:realsplits}
+\end{table}
+
+All three criteria therefore select threshold 2.005 for this example,
+although they can select different splits when the class distributions differ.
+
+\textbf{Step 7: create the final decision tree.}
+Keep the best threshold as the root decision. Its left branch contains
+source rows 133, 132, and 131, all cultivar 3. Its right branch contains
+rows 2, 1, and 3, all cultivar 1. Each branch is already pure, so each
+becomes a leaf and no further splitting is needed.
+
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{3}{c}{\fbox{Flavonoids $\leq 2.005$?}}\\[0.5em]
+Yes $\swarrow$ && $\searrow$ No\\[0.5em]
+\fbox{Predict cultivar 3} && \fbox{Predict cultivar 1}\\
+3 training rows && 3 training rows
+\end{tabular}
+\end{center}
+
+\textbf{Step 8: predict the two testing rows.}
+Row 6 has a flavonoid measurement of 3.39, so it follows the right branch
+and receives prediction 1. Row 137 has measurement 0.47, so it follows
+the left branch and receives prediction 3. Both predictions match the
+original cultivar labels.
+
+\begin{table}[!ht]\centering\small
+\input{tables/wine_example_predictions.tex}
+\caption{Predictions for the two testing rows in the worked example.}
+\label{tab:realpredictions}
+\end{table}
+
+The script \code{report/worked_example.py} runs this example through the
+actual implementation. It checks the selected threshold, the three-node
+tree, both leaf labels, and all six training and two testing predictions
+for each split criterion. All checks passed.
+
+\section{Experimental method}
+\begin{table}[htbp]\centering\small
+\input{tables/environment.tex}
+\caption{Computer specifications and software used for the experiments.}
+\label{tab:environment}
+\end{table}
+
+Each of the six classifier configurations was run on all ten benchmarks three
+times, giving 180 runs. Each run used a fresh process, and model computation
+was limited to one thread. All classifiers used the same saved training and
+testing rows for each benchmark, with fixed parameters and no tuning on the
+test data. Repetitions measure variation in execution time and memory on the
+same split, rather than variation in accuracy across different data splits.
+
+Prediction quality is reported using accuracy and macro-averaged F1 score.
+Accuracy is the fraction of correct predictions. The F1 score combines
+precision (how often a predicted class is correct) and recall (how many actual
+members of that class are found); its macro average gives every class equal
+weight. Overall scores also give each benchmark equal weight, so larger
+datasets do not dominate the comparison.
+
+Training and prediction time were measured separately, including any feature
+scaling but excluding data loading, evaluation, and result saving. Memory
+measurements record the sampled peak process memory, including the model,
+loaded data, libraries, and Python runtime; brief peaks may be missed.
+Resource tables report the mean and sample standard deviation over three
+runs. Overall times sum the per-benchmark mean times.
+
+\section{Predictive results and comparison}
+\subsection{All ten benchmarks}
+Tables~\ref{tab:accuracy} and~\ref{tab:f1} report every dataset/configuration,
+with best values within a row bolded. Values are descriptive results on the
+fixed test splits, not tuned selections or claims of statistical superiority.
+Information gain, gain ratio and Gini impurity denote the custom tree configurations throughout.
+
+\begin{table}[htbp]\centering\small
+\input{tables/accuracy.tex}
+\caption{Test accuracy (percent correct; higher is better). All six models use the same partition for each dataset.}
+\label{tab:accuracy}
+\end{table}
+\begin{table}[htbp]\centering\small
+\input{tables/f1.tex}
+\caption{Test macro-averaged F1 score (0--1; higher is better). Classes have equal weight within each dataset.}
+\label{tab:f1}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.95\linewidth]{figures/f1.pdf}
+\caption{Macro-averaged F1 score (0--1; higher is better) across all datasets. The contrast with accuracy exposes poor
+minority-class performance on Cervical Cancer and Poker.}
+\label{fig:f1}
+\end{figure}
+
+\begin{table}[htbp]\centering\small
+\input{tables/overall.tex}
+\caption{Equal-dataset averages and sums of per-dataset mean times. Accuracy: percent correct; F1 score: 0--1 (higher is better); time: seconds (lower is faster). These aggregate
+scores do not imply that one model is best on every dataset.}
+\label{tab:overall}
+\end{table}
+
+Five-nearest neighbors has the highest mean accuracy and macro-averaged F1 score across these ten prepared tasks.
+Logistic regression has nearly the same mean accuracy and much lower prediction time. Among tree
+criteria, Gini has the highest mean scores, followed by information gain and then gain ratio. Gaussian naive Bayes has
+the lowest average accuracy, but that aggregate conceals strong results on
+some individual datasets. The pattern supports comparing several methods rather
+than assuming that a single induction rule is universally preferable.
+
+\subsection{Dataset-specific interpretation}
+\textbf{Breast Cancer and Contraceptive Method Choice.}
+Five-nearest neighbors leads Benchmark 1 with 71.93\% accuracy and macro-averaged F1 score 0.5778; its advantage over the
+70.18\% training-majority accuracy is modest on only 57 test rows. On Benchmark 4, logistic regression
+has the highest observed accuracy (52.54\%) and macro-averaged F1 score (0.4953), only narrowly
+above gain ratio's macro-averaged F1 score of 0.4950. These small differences are not evidence of
+statistical significance.
+
+\textbf{Computer Hardware.}
+Gini gives the highest accuracy (80.49\%), while Gaussian naive Bayes has the highest macro-averaged F1 score
+(0.7417). Different winners under the two metrics reflect the differing weights
+given to common and less common performance classes. Conclusions concern the four
+chosen bands, not continuous performance prediction.
+
+\textbf{Human Activity Recognition and Japanese Vowels.}
+Logistic regression is strongest on both: 95.55\% accuracy and 0.9553 macro-averaged F1 score on Human Activity Recognition; 97.57\%
+accuracy and 0.9733 macro-averaged F1 score on Vowels. The Gini tree reaches 87.07\% accuracy
+on Human Activity Recognition, while the best tree accuracy on Vowels is gain ratio's 80.27\%. These observations
+show that axis-aligned trees with the selected depth limit do not best exploit
+every numeric representation. They do not identify whether additional depth,
+pruning, feature engineering or another split geometry would close the gap.
+
+\textbf{Poker.}
+Gain ratio has the highest accuracy (57.91\%), compared with training-majority accuracy
+50.12\%. Five-nearest neighbors has the highest macro-averaged F1 score (0.1992) but only 48.47\% accuracy. Even the
+best macro-averaged F1 score is low, so high test-set size must not be mistaken for strong
+classification performance. Fixed card positions and numeric ranks do not
+explicitly encode the permutation-invariant relationships defining poker hands.
+That representation is a plausible contributing limitation, not an experimentally
+isolated explanation.
+
+\textbf{Steel Industry.}
+Gini gives the highest accuracy (75.78\%) and macro-averaged F1 score (0.6744). Information gain is close at
+75.66\% and 0.6723. The chronological split is harder to interpret like a random
+sample: differences over time may contribute to the training/test gap. No
+separate drift analysis was conducted, and same-time usage features mean the
+task should not be presented as future-load forecasting.
+
+\textbf{Wine and Wine Quality.}
+Logistic regression correctly classifies all 36 Wine test rows. Five-nearest neighbors and Gaussian naive Bayes each achieve 97.22\%,
+and all three trees achieve 91.67\%. The small test set limits the strength of
+any perfect-score claim. On Wine Quality, information gain has the highest accuracy (57.46\%);
+five-nearest neighbors has the slightly highest macro-averaged F1 score (0.3193 versus information gain's 0.3192). Gain ratio's 43.62\%
+accuracy matches the training-majority reference after rounding. The raw integer
+quality labels are not merged, so this is a difficult imbalanced seven-class task.
+
+\subsection{Why accuracy alone is insufficient: Cervical Cancer}
+The test set contains 161 negative and 11 positive Biopsy labels. Information gain, logistic regression and
+Five-nearest neighbors all predict the negative class for every test example, giving 93.60\%
+accuracy but zero positive recall. Their macro-averaged F1 score is only 0.4835. Gain ratio finds one
+positive example, with four false positives, producing a higher macro-averaged F1 score of
+0.5412 despite lower accuracy. Gaussian naive Bayes takes the opposite extreme: nine true positives
+but 154 false positives, yielding only 9.30\% accuracy. Table~\ref{tab:cervical}
+makes the errors explicit; these are benchmark results, not clinical validation.
+
+\begin{table}[htbp]\centering\small
+\input{tables/cervical.tex}
+\caption{Benchmark 2 confusion counts (number of cases), positive recall and F1 score (0--1; higher is better). Positive means Biopsy class 1.
+The columns distinguish correctly predicted negative and positive cases from false alarms and missed positive cases.}
+\label{tab:cervical}
+\end{table}
+
+\subsection{Tree size and training/test gaps}
+\begin{table}[htbp]\centering\scriptsize
+\input{tables/trees.tex}
+\caption{Tree size: number of nodes; depth: maximum splits from root to leaf; training and testing: accuracy (percent correct). Metrics
+are from repetition one; the deterministic tree configurations use fixed data.}
+\label{tab:trees}
+\end{table}
+The trees often attain much higher training accuracy than test accuracy. On Human Activity Recognition,
+information gain obtains 99.46\% training versus 85.41\% test accuracy. On Steel, Gini obtains
+94.96\% versus 75.78\%. These gaps are consistent with limited generalization,
+although the chronological Steel split can also involve distribution differences.
+
+Gain ratio tends to produce smaller trees in several datasets, but smaller is not always
+better. On Poker it uses 1,003 nodes versus information gain's 3,427 and obtains higher accuracy.
+On Wine Quality it produces only 41 nodes, with training accuracy 44.26\% and
+test accuracy 43.62\%, indicating little improvement even on the training set.
+The direct ratio criterion, strictly positive-gain rule and depth/leaf constraints
+can favor different growth patterns. The study has not separately ablated those
+mechanisms. Future pruning and training-only tuning would be appropriate before
+concluding that one criterion is intrinsically inferior.
+
+\section{Execution time and memory}
+\subsection{Training and prediction tradeoffs}
+Figure~\ref{fig:times} shows per-dataset mean times on logarithmic axes, while
+Appendix~\ref{sec:fullresources} provides all measurements with sample standard deviation.
+The custom tree training workload is largest on Human Activity Recognition, which has 561 predictors:
+mean times are approximately 10.17 seconds for information gain, 13.32 for gain ratio and 11.29 for
+Gini. Poker has more training rows but only 30 encoded predictors; tree fit
+times there are approximately 2.56, 1.22 and 1.39 seconds, respectively. This
+illustrates why row count alone does not determine induction cost.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.97\linewidth]{figures/times.pdf}
+\caption{Mean training and prediction time over three fresh-process repetitions.
+Lines connect discrete datasets only to identify methods; they do not represent
+an interpolation or a common dataset-size axis.}
+\label{fig:times}
+\end{figure}
+
+Five-nearest neighbors's low fit time reflects storing training examples rather than learning a
+compact decision rule. Its Poker prediction times are 95.60, 94.49 and 93.26
+seconds, averaging about 94.45 seconds. Logistic regression predicts that same test set in about
+0.18 seconds on average, while the trees take approximately 1.08--3.24 seconds.
+Five-nearest neighbors's full-distance search dominates its total prediction time across datasets.
+All these results include the common 2,048-row batching policy, which introduces
+overhead and therefore differs from the earlier unbatched pilot timings.
+
+Gaussian naive Bayes and logistic regression benefit from compact fitted parameters and optimized library routines.
+The custom tree's repeated feature sorting and count-array construction produce
+substantial training work. Consequently, timings compare these implementations
+as delivered, not isolated algorithmic complexity with identical low-level code.
+Some fit times on small datasets are only milliseconds; their relative ordering
+can reflect fixed overhead and operating-system activity as much as model work.
+
+\subsection{Interpreting process memory}
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.97\linewidth]{figures/memory.pdf}
+\caption{Mean sampled resident process memory during fit and prediction. This includes
+both loaded data partitions, imported libraries and runtime state; it is not
+model-only memory. Error statistics appear in Appendix~\ref{sec:fullresources}.}
+\label{fig:memory}
+\end{figure}
+
+Small datasets have process peaks near 140--144 mebibytes, much of which is the common
+runtime/library footprint. Human Activity Recognition's training peaks are higher because of the wide
+feature matrices and training temporaries. Poker reaches roughly 263--273 mebibytes
+depending on method and phase, even for algorithms with small fitted models,
+because its one-million-row test matrix is already loaded during fitting.
+Thus, high Poker training resident process memory does not mean that all of that memory is needed
+to represent the trained classifier.
+
+Batching limits the number of queries processed together; the code does not
+allocate a single full million-by-25,010 distance matrix. It does still load
+the complete test feature matrix. The measured peaks therefore describe this
+in-memory evaluation design, not a streaming-data lower bound. Differences of
+fractions of a mebibytes should not be overinterpreted when sampling every 5 ms.
+The underlying spreadsheet file additionally records phase baseline resident process memory and increases above
+baseline, allowing a more detailed resource discussion if needed.
+
+\section{Limitations and conclusions}
+The validation demonstrates agreement with worked calculations, deterministic
+tree behavior on small examples, and consistency of the large-run results with
+saved predictions. It supports the correctness of the implemented operations;
+it does not prove that every unseen input is handled correctly or that the
+greedy tree is globally optimal.
+
+The main experimental limitations are the single split per dataset, fixed
+untuned hyperparameters, no pruning, retained duplicate rows, sampled rather
+than exact peak memory, and differences between optimized library code and the
+custom Python/NumPy implementation. Repeating the same split measures timing
+variation; additional independent splits or properly nested validation would be
+needed for generalization uncertainty and model selection. Any future tuning
+must refit preprocessing inside training folds and leave test data untouched.
+The Hardware target adaptation, Vowels summarization, and Steel target definition
+also prevent direct comparison with publications using different formulations.
+
+Within these constraints, five-nearest neighbors achieved the best average scores but a large
+prediction-time cost. Logistic regression offered nearly the same average accuracy with much
+lower prediction time. Gini was the strongest custom tree configuration on
+average, while individual datasets favored other criteria. The most informative
+comparison is therefore the joint view of macro-averaged F1 score, accuracy, class-level errors,
+training/test gaps, runtime and memory, rather than a single overall ranking.
+
+\section{Reproducibility and report artifacts}
+From the repository root with the project environment activated:
+\begin{verbatim}
+python -m pip install -r requirements.txt
+python scripts/process_benchmarks.py
+python -m unittest discover -s tests -v
+python -m unittest discover -s scripts -p "test_*.py"
+python main.py
+python scripts/validate_results.py
+python report/worked_example.py
+python report/build_assets.py
+\end{verbatim}
+Prepared data can be reused when already present. The default comparison is
+six configurations, ten datasets and three repetitions. On Windows the same
+commands can use \code{.venv\Scripts\python.exe} directly. Running the comparison
+again overwrites its default output; use \code{--output-dir} to retain another experiment.
+
+The comparison folder contains \code{runs.csv} (all measurements),
+\code{summary.csv} (means and standard deviation), \code{per_class.csv} (class-level metrics),
+\code{overall.csv}, full structured result records, and saved true/predicted labels for both
+training and testing. The manifest records arguments, source hashes and input
+hashes, and \code{validation.json} records the completed audit. This report's
+tables and vector figures are generated from those artifacts, with compact
+copies of the summary and provenance files included in the report folder.
+
+Compile from inside \code{report/} with \code{pdflatex report.tex}, twice to
+resolve references and the table of contents. No separate bibliography-processing step is required.
+
+\clearpage
+\appendix
+\section{Complete resource measurements}\label{sec:fullresources}
+The following table reports each of the 60 configurations, not just selected
+winners. Values are rounded for presentation; unrounded per-repetition values
+remain in \code{results/comparison/runs.csv}. A printed standard deviation of zero can mean
+variation below the displayed precision. \begingroup\scriptsize\setlength{\tabcolsep}{4pt}
+\input{tables/resources.tex}
+\endgroup
+
+\end{document}

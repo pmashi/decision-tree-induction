@@ -1,0 +1,276 @@
+{
+  "benchmark": 5,
+  "dataset": "Human activity recognition",
+  "criterion": "gaussian_nb",
+  "model": "gaussian_nb",
+  "family": "sklearn_baseline",
+  "repetition": 1,
+  "warnings": [],
+  "converged": true,
+  "solver_iterations": [],
+  "input_sha256": "134e13a98c378e47933a9502539a6bc1407e72fbe2e991176b3ff9f4f901c120",
+  "preprocessing_sha256": "416cad9ba32750c36e4d348bea8e2119f093ddc24377cc377c69a01ff91312b0",
+  "predictions_file": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison\\predictions\\benchmark5_gaussian_nb_r1.npz",
+  "train_rows": 7352,
+  "test_rows": 2947,
+  "features": 561,
+  "classes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6"
+  ],
+  "split": "official",
+  "preprocessing_notes": [
+    "Uses the 561 supplied engineered features; subject IDs are metadata, not predictors. Original feature normalization is retained."
+  ],
+  "config": {
+    "implementation": "sklearn.naive_bayes.GaussianNB",
+    "parameters": {
+      "priors": null,
+      "var_smoothing": 1e-09
+    }
+  },
+  "tree": null,
+  "training": {
+    "seconds": 0.036208700039424,
+    "baseline_rss_mib": 164.703125,
+    "sampled_peak_rss_mib": 180.6796875,
+    "sampled_increase_mib": 15.9765625
+  },
+  "prediction": {
+    "seconds": 0.03882729995530099,
+    "baseline_rss_mib": 164.98828125,
+    "sampled_peak_rss_mib": 170.90234375,
+    "sampled_increase_mib": 5.9140625
+  },
+  "evaluation": {
+    "accuracy": 0.7702748557855447,
+    "macro_precision": 0.792465596633083,
+    "macro_recall": 0.7690658908588546,
+    "macro_f1": 0.7672347781376718,
+    "confusion_matrix": [
+      [
+        416,
+        38,
+        42,
+        0,
+        0,
+        0
+      ],
+      [
+        9,
+        451,
+        11,
+        0,
+        0,
+        0
+      ],
+      [
+        80,
+        83,
+        257,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        7,
+        0,
+        368,
+        111,
+        5
+      ],
+      [
+        0,
+        15,
+        0,
+        54,
+        455,
+        8
+      ],
+      [
+        0,
+        3,
+        0,
+        211,
+        0,
+        323
+      ]
+    ],
+    "precision_per_class": [
+      0.8237623762376237,
+      0.7554438860971524,
+      0.8290322580645161,
+      0.5813586097946287,
+      0.803886925795053,
+      0.9613095238095238
+    ],
+    "recall_per_class": [
+      0.8387096774193549,
+      0.9575371549893843,
+      0.611904761904762,
+      0.7494908350305499,
+      0.8552631578947368,
+      0.6014897579143389
+    ],
+    "f1_per_class": [
+      0.8311688311688312,
+      0.8445692883895131,
+      0.7041095890410959,
+      0.6548042704626335,
+      0.8287795992714025,
+      0.7399770904925544
+    ],
+    "support": [
+      496,
+      471,
+      420,
+      491,
+      532,
+      537
+    ]
+  },
+  "training_evaluation": {
+    "accuracy": 0.7463275299238302,
+    "macro_precision": 0.7925731508403183,
+    "macro_recall": 0.7555279793091302,
+    "macro_f1": 0.7521182762944155,
+    "confusion_matrix": [
+      [
+        898,
+        201,
+        127,
+        0,
+        0,
+        0
+      ],
+      [
+        22,
+        971,
+        80,
+        0,
+        0,
+        0
+      ],
+      [
+        38,
+        170,
+        778,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        17,
+        0,
+        1040,
+        214,
+        15
+      ],
+      [
+        1,
+        22,
+        0,
+        250,
+        1095,
+        6
+      ],
+      [
+        0,
+        15,
+        0,
+        687,
+        0,
+        705
+      ]
+    ],
+    "precision_per_class": [
+      0.9363920750782064,
+      0.6955587392550143,
+      0.7898477157360406,
+      0.5260495700556399,
+      0.8365164247517188,
+      0.9710743801652892
+    ],
+    "recall_per_class": [
+      0.732463295269168,
+      0.9049394221808015,
+      0.7890466531440162,
+      0.8087091757387247,
+      0.7969432314410481,
+      0.5010660980810234
+    ],
+    "f1_per_class": [
+      0.8219679633867277,
+      0.7865532604293236,
+      0.7894469812278032,
+      0.6374501992031874,
+      0.8162504658963845,
+      0.6610407876230661
+    ],
+    "support": [
+      1226,
+      1073,
+      986,
+      1286,
+      1374,
+      1407
+    ]
+  },
+  "majority_baseline_accuracy": 0.18221920597217509,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "batch_size": 2048,
+    "native_threads": 1,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "version": "0.3.34.0.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "timing": "perf_counter wall time; includes model-specific scaling and prediction batching; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-22T20:25:31.160440+00:00"
+}

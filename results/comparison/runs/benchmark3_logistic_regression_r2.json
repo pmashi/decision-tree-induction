@@ -1,0 +1,235 @@
+{
+  "benchmark": 3,
+  "dataset": "Computer hardware",
+  "criterion": "logistic_regression",
+  "model": "logistic_regression",
+  "family": "sklearn_baseline",
+  "repetition": 2,
+  "warnings": [],
+  "converged": true,
+  "solver_iterations": [
+    21
+  ],
+  "input_sha256": "0d385b786d3b3f14ee34295c898242dd5f87c17e9f3cf6d192fd6a083f4748aa",
+  "preprocessing_sha256": "b3bed82edf5dcf0f79cefc65657879757736c4c9a31814d5e439a7ad3f89792f",
+  "predictions_file": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison\\predictions\\benchmark3_logistic_regression_r2.npz",
+  "train_rows": 168,
+  "test_rows": 41,
+  "features": 6,
+  "classes": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "split": "stratified",
+  "preprocessing_notes": [
+    "Adapted regression task: PRP bands have inclusive upper bounds [20, 100, 200]; final band is above the last bound. Band IDs start at 0.",
+    "Vendor, model, raw PRP and estimated performance ERP are excluded from predictors. Results are not directly comparable to the original regression task."
+  ],
+  "config": {
+    "standardscaler": {
+      "implementation": "sklearn.preprocessing._data.StandardScaler",
+      "parameters": {
+        "copy": true,
+        "with_mean": true,
+        "with_std": true
+      }
+    },
+    "logisticregression": {
+      "implementation": "sklearn.linear_model._logistic.LogisticRegression",
+      "parameters": {
+        "C": 1.0,
+        "class_weight": null,
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 5000,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 42,
+        "solver": "lbfgs",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      }
+    }
+  },
+  "tree": null,
+  "training": {
+    "seconds": 0.017785700038075447,
+    "baseline_rss_mib": 140.97265625,
+    "sampled_peak_rss_mib": 141.57421875,
+    "sampled_increase_mib": 0.6015625
+  },
+  "prediction": {
+    "seconds": 0.0004349000519141555,
+    "baseline_rss_mib": 141.5703125,
+    "sampled_peak_rss_mib": 141.58203125,
+    "sampled_increase_mib": 0.01171875
+  },
+  "evaluation": {
+    "accuracy": 0.7560975609756098,
+    "macro_precision": 0.7313218390804598,
+    "macro_recall": 0.6208333333333333,
+    "macro_f1": 0.659819897084048,
+    "confusion_matrix": [
+      [
+        2,
+        4,
+        0,
+        0
+      ],
+      [
+        2,
+        22,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        5
+      ]
+    ],
+    "precision_per_class": [
+      0.5,
+      0.7586206896551724,
+      0.6666666666666666,
+      1.0
+    ],
+    "recall_per_class": [
+      0.3333333333333333,
+      0.9166666666666666,
+      0.4,
+      0.8333333333333334
+    ],
+    "f1_per_class": [
+      0.4,
+      0.830188679245283,
+      0.5,
+      0.9090909090909091
+    ],
+    "support": [
+      6,
+      24,
+      5,
+      6
+    ]
+  },
+  "training_evaluation": {
+    "accuracy": 0.8035714285714286,
+    "macro_precision": 0.7572809543397778,
+    "macro_recall": 0.6877194626679163,
+    "macro_f1": 0.7105105105105105,
+    "confusion_matrix": [
+      [
+        14,
+        11,
+        0,
+        0
+      ],
+      [
+        3,
+        92,
+        2,
+        0
+      ],
+      [
+        0,
+        7,
+        9,
+        6
+      ],
+      [
+        0,
+        0,
+        4,
+        20
+      ]
+    ],
+    "precision_per_class": [
+      0.8235294117647058,
+      0.8363636363636363,
+      0.6,
+      0.7692307692307693
+    ],
+    "recall_per_class": [
+      0.56,
+      0.9484536082474226,
+      0.4090909090909091,
+      0.8333333333333334
+    ],
+    "f1_per_class": [
+      0.6666666666666666,
+      0.8888888888888888,
+      0.4864864864864865,
+      0.8
+    ],
+    "support": [
+      25,
+      97,
+      22,
+      24
+    ]
+  },
+  "majority_baseline_accuracy": 0.5853658536585366,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "batch_size": 2048,
+    "native_threads": 1,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "version": "0.3.34.0.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "timing": "perf_counter wall time; includes model-specific scaling and prediction batching; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-22T20:23:14.491678+00:00"
+}

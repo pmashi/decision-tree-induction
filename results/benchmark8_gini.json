@@ -1,0 +1,101 @@
+{
+  "benchmark": 8,
+  "dataset": "Steel industry",
+  "criterion": "gini",
+  "train_rows": 28032,
+  "test_rows": 7008,
+  "features": 18,
+  "classes": [
+    "Light_Load",
+    "Maximum_Load",
+    "Medium_Load"
+  ],
+  "split": "chronological",
+  "preprocessing_notes": [
+    "Rows sorted by timestamp, then split chronologically. Timestamp excluded; row indices refer to this sorted order.",
+    "This classifies load type using same-time measurements, including Usage_kWh; it is not a future-load forecast."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 741,
+    "leaves": 371,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 0.3568922000704333,
+    "baseline_rss_mib": 33.28515625,
+    "sampled_peak_rss_mib": 40.5625,
+    "sampled_increase_mib": 7.27734375
+  },
+  "prediction": {
+    "seconds": 0.0021220999769866467,
+    "baseline_rss_mib": 35.828125,
+    "sampled_peak_rss_mib": 36.20703125,
+    "sampled_increase_mib": 0.37890625
+  },
+  "evaluation": {
+    "accuracy": 0.7578481735159818,
+    "macro_precision": 0.6737041322222121,
+    "macro_recall": 0.6754696912382602,
+    "macro_f1": 0.6743831444412004,
+    "confusion_matrix": [
+      [
+        3501,
+        24,
+        179
+      ],
+      [
+        39,
+        694,
+        683
+      ],
+      [
+        46,
+        726,
+        1116
+      ]
+    ],
+    "precision_per_class": [
+      0.9762967094255438,
+      0.4806094182825485,
+      0.564206268958544
+    ],
+    "recall_per_class": [
+      0.9451943844492441,
+      0.4901129943502825,
+      0.5911016949152542
+    ],
+    "f1_per_class": [
+      0.9604938271604938,
+      0.48531468531468536,
+      0.577340920848422
+    ],
+    "support": [
+      3704,
+      1416,
+      1888
+    ]
+  },
+  "majority_baseline_accuracy": 0.5285388127853882,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-21T23:53:45.770547+00:00"
+}

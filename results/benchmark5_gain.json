@@ -1,0 +1,148 @@
+{
+  "benchmark": 5,
+  "dataset": "Human activity recognition",
+  "criterion": "gain",
+  "train_rows": 7352,
+  "test_rows": 2947,
+  "features": 561,
+  "classes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6"
+  ],
+  "split": "official",
+  "preprocessing_notes": [
+    "Uses the 561 supplied engineered features; subject IDs are metadata, not predictors. Original feature normalization is retained."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 255,
+    "leaves": 128,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 23.286596100078896,
+    "baseline_rss_mib": 53.36328125,
+    "sampled_peak_rss_mib": 90.36328125,
+    "sampled_increase_mib": 37.0
+  },
+  "prediction": {
+    "seconds": 0.004274899954907596,
+    "baseline_rss_mib": 57.61328125,
+    "sampled_peak_rss_mib": 57.734375,
+    "sampled_increase_mib": 0.12109375
+  },
+  "evaluation": {
+    "accuracy": 0.8540889039701391,
+    "macro_precision": 0.8530381293711797,
+    "macro_recall": 0.8509579364480512,
+    "macro_f1": 0.850742683674102,
+    "confusion_matrix": [
+      [
+        455,
+        16,
+        25,
+        0,
+        0,
+        0
+      ],
+      [
+        85,
+        348,
+        38,
+        0,
+        0,
+        0
+      ],
+      [
+        17,
+        47,
+        356,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        0,
+        374,
+        114,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        83,
+        447,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        537
+      ]
+    ],
+    "precision_per_class": [
+      0.8168761220825853,
+      0.8365384615384616,
+      0.8496420047732697,
+      0.8183807439824945,
+      0.7967914438502673,
+      1.0
+    ],
+    "recall_per_class": [
+      0.9173387096774194,
+      0.7388535031847133,
+      0.8476190476190476,
+      0.7617107942973523,
+      0.8402255639097744,
+      1.0
+    ],
+    "f1_per_class": [
+      0.8641975308641976,
+      0.7846674182638106,
+      0.8486293206197854,
+      0.7890295358649788,
+      0.817932296431839,
+      1.0
+    ],
+    "support": [
+      496,
+      471,
+      420,
+      491,
+      532,
+      537
+    ]
+  },
+  "majority_baseline_accuracy": 0.18221920597217509,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-21T23:52:41.196964+00:00"
+}

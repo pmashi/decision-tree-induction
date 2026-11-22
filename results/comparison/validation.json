@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "runs": 180,
+  "configurations": 60,
+  "warning_categories": {},
+  "checks": [
+    "coverage",
+    "source/input hashes",
+    "true label alignment",
+    "reference confusion matrices",
+    "reference train/test metrics",
+    "resource bounds",
+    "summary means/sample SD"
+  ]
+}

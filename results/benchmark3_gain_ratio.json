@@ -1,0 +1,115 @@
+{
+  "benchmark": 3,
+  "dataset": "Computer hardware",
+  "criterion": "gain_ratio",
+  "train_rows": 168,
+  "test_rows": 41,
+  "features": 6,
+  "classes": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "split": "stratified",
+  "preprocessing_notes": [
+    "Adapted regression task: PRP bands have inclusive upper bounds [20, 100, 200]; final band is above the last bound. Band IDs start at 0.",
+    "Vendor, model, raw PRP and estimated performance ERP are excluded from predictors. Results are not directly comparable to the original regression task."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 61,
+    "leaves": 31,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 0.014580599963665009,
+    "baseline_rss_mib": 30.7578125,
+    "sampled_peak_rss_mib": 31.30078125,
+    "sampled_increase_mib": 0.54296875
+  },
+  "prediction": {
+    "seconds": 0.0002354000462219119,
+    "baseline_rss_mib": 31.29296875,
+    "sampled_peak_rss_mib": 31.3359375,
+    "sampled_increase_mib": 0.04296875
+  },
+  "evaluation": {
+    "accuracy": 0.7804878048780488,
+    "macro_precision": 0.7395833333333334,
+    "macro_recall": 0.7250000000000001,
+    "macro_f1": 0.7252886002886003,
+    "confusion_matrix": [
+      [
+        5,
+        1,
+        0,
+        0
+      ],
+      [
+        3,
+        20,
+        1,
+        0
+      ],
+      [
+        0,
+        3,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        5
+      ]
+    ],
+    "precision_per_class": [
+      0.625,
+      0.8333333333333334,
+      0.5,
+      1.0
+    ],
+    "recall_per_class": [
+      0.8333333333333334,
+      0.8333333333333334,
+      0.4,
+      0.8333333333333334
+    ],
+    "f1_per_class": [
+      0.7142857142857143,
+      0.8333333333333334,
+      0.4444444444444445,
+      0.9090909090909091
+    ],
+    "support": [
+      6,
+      24,
+      5,
+      6
+    ]
+  },
+  "majority_baseline_accuracy": 0.5853658536585366,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-21T23:52:16.008074+00:00"
+}

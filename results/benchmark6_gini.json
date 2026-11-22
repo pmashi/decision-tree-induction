@@ -1,0 +1,215 @@
+{
+  "benchmark": 6,
+  "dataset": "Japanese vowels",
+  "criterion": "gini",
+  "train_rows": 270,
+  "test_rows": 370,
+  "features": 49,
+  "classes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "split": "official",
+  "preprocessing_notes": [
+    "One example per utterance; speaker labels follow the supplied size files.",
+    "Each coefficient is summarized by mean, population standard deviation, minimum and maximum; frame count is included. Temporal order is lost."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 51,
+    "leaves": 26,
+    "depth": 8
+  },
+  "training": {
+    "seconds": 0.09188610001001507,
+    "baseline_rss_mib": 30.94140625,
+    "sampled_peak_rss_mib": 31.46484375,
+    "sampled_increase_mib": 0.5234375
+  },
+  "prediction": {
+    "seconds": 0.0002370000584051013,
+    "baseline_rss_mib": 31.453125,
+    "sampled_peak_rss_mib": 31.4921875,
+    "sampled_increase_mib": 0.0390625
+  },
+  "evaluation": {
+    "accuracy": 0.8,
+    "macro_precision": 0.8087215003004476,
+    "macro_recall": 0.8162827143194218,
+    "macro_f1": 0.8044597972620021,
+    "confusion_matrix": [
+      [
+        26,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        3,
+        1
+      ],
+      [
+        0,
+        29,
+        0,
+        1,
+        0,
+        0,
+        0,
+        3,
+        2
+      ],
+      [
+        1,
+        10,
+        69,
+        2,
+        0,
+        0,
+        1,
+        4,
+        1
+      ],
+      [
+        0,
+        9,
+        0,
+        33,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        26,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        24,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        30,
+        3,
+        5
+      ],
+      [
+        3,
+        5,
+        0,
+        0,
+        1,
+        0,
+        1,
+        37,
+        3
+      ],
+      [
+        1,
+        1,
+        0,
+        1,
+        3,
+        0,
+        0,
+        1,
+        22
+      ]
+    ],
+    "precision_per_class": [
+      0.8125,
+      0.5272727272727272,
+      1.0,
+      0.868421052631579,
+      0.8666666666666667,
+      0.96,
+      0.9375,
+      0.7115384615384616,
+      0.5945945945945946
+    ],
+    "recall_per_class": [
+      0.8387096774193549,
+      0.8285714285714286,
+      0.7840909090909091,
+      0.75,
+      0.896551724137931,
+      1.0,
+      0.75,
+      0.74,
+      0.7586206896551724
+    ],
+    "f1_per_class": [
+      0.8253968253968254,
+      0.6444444444444444,
+      0.8789808917197451,
+      0.8048780487804879,
+      0.8813559322033899,
+      0.9795918367346939,
+      0.8333333333333334,
+      0.7254901960784313,
+      0.6666666666666667
+    ],
+    "support": [
+      31,
+      35,
+      88,
+      44,
+      29,
+      24,
+      40,
+      50,
+      29
+    ]
+  },
+  "majority_baseline_accuracy": 0.08378378378378379,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-21T23:53:36.295699+00:00"
+}

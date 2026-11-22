@@ -1,0 +1,409 @@
+{
+  "benchmark": 6,
+  "dataset": "Japanese vowels",
+  "criterion": "gain_ratio",
+  "model": "gain_ratio",
+  "family": "custom_tree",
+  "repetition": 2,
+  "warnings": [],
+  "converged": true,
+  "solver_iterations": [],
+  "input_sha256": "9f82234e570dc2f2f99403d26042ad997a1defc1f0f5d560539e58bd7a77a64c",
+  "preprocessing_sha256": "2ea797efd95fdacbf5c01d2a024b7e6ca6e2d917d91d72be4e8bbb992affdfa1",
+  "predictions_file": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison\\predictions\\benchmark6_gain_ratio_r2.npz",
+  "train_rows": 270,
+  "test_rows": 370,
+  "features": 49,
+  "classes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "split": "official",
+  "preprocessing_notes": [
+    "One example per utterance; speaker labels follow the supplied size files.",
+    "Each coefficient is summarized by mean, population standard deviation, minimum and maximum; frame count is included. Temporal order is lost."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 49,
+    "leaves": 25,
+    "depth": 10
+  },
+  "training": {
+    "seconds": 0.1445744999218732,
+    "baseline_rss_mib": 140.9453125,
+    "sampled_peak_rss_mib": 141.21484375,
+    "sampled_increase_mib": 0.26953125
+  },
+  "prediction": {
+    "seconds": 0.0002933000214397907,
+    "baseline_rss_mib": 141.2109375,
+    "sampled_peak_rss_mib": 141.22265625,
+    "sampled_increase_mib": 0.01171875
+  },
+  "evaluation": {
+    "accuracy": 0.8027027027027027,
+    "macro_precision": 0.7937780046528674,
+    "macro_recall": 0.8127850650153209,
+    "macro_f1": 0.8012248410863464,
+    "confusion_matrix": [
+      [
+        25,
+        0,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2
+      ],
+      [
+        1,
+        24,
+        3,
+        1,
+        0,
+        0,
+        0,
+        5,
+        1
+      ],
+      [
+        0,
+        5,
+        71,
+        0,
+        0,
+        0,
+        6,
+        3,
+        3
+      ],
+      [
+        1,
+        1,
+        0,
+        37,
+        0,
+        0,
+        0,
+        3,
+        2
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        26,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        24,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        1,
+        2,
+        0,
+        32,
+        0,
+        2
+      ],
+      [
+        4,
+        4,
+        2,
+        2,
+        0,
+        0,
+        0,
+        36,
+        2
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        2,
+        22
+      ]
+    ],
+    "precision_per_class": [
+      0.6756756756756757,
+      0.7058823529411765,
+      0.9342105263157895,
+      0.8809523809523809,
+      0.8387096774193549,
+      0.96,
+      0.8,
+      0.72,
+      0.6285714285714286
+    ],
+    "recall_per_class": [
+      0.8064516129032258,
+      0.6857142857142857,
+      0.8068181818181818,
+      0.8409090909090909,
+      0.896551724137931,
+      1.0,
+      0.8,
+      0.72,
+      0.7586206896551724
+    ],
+    "f1_per_class": [
+      0.7352941176470588,
+      0.6956521739130436,
+      0.8658536585365854,
+      0.8604651162790699,
+      0.8666666666666666,
+      0.9795918367346939,
+      0.8000000000000002,
+      0.72,
+      0.6875
+    ],
+    "support": [
+      31,
+      35,
+      88,
+      44,
+      29,
+      24,
+      40,
+      50,
+      29
+    ]
+  },
+  "training_evaluation": {
+    "accuracy": 0.9777777777777777,
+    "macro_precision": 0.9784714497589915,
+    "macro_recall": 0.9777777777777779,
+    "macro_f1": 0.9777036762536072,
+    "confusion_matrix": [
+      [
+        30,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        29,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        29,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        30,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        30,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        30,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        28,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        28
+      ]
+    ],
+    "precision_per_class": [
+      0.9375,
+      0.967741935483871,
+      1.0,
+      1.0,
+      0.967741935483871,
+      1.0,
+      0.967741935483871,
+      0.9655172413793104,
+      1.0
+    ],
+    "recall_per_class": [
+      1.0,
+      1.0,
+      0.9666666666666667,
+      0.9666666666666667,
+      1.0,
+      1.0,
+      1.0,
+      0.9333333333333333,
+      0.9333333333333333
+    ],
+    "f1_per_class": [
+      0.967741935483871,
+      0.9836065573770492,
+      0.983050847457627,
+      0.983050847457627,
+      0.9836065573770492,
+      1.0,
+      0.9836065573770492,
+      0.9491525423728815,
+      0.9655172413793104
+    ],
+    "support": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ]
+  },
+  "majority_baseline_accuracy": 0.08378378378378379,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "batch_size": 2048,
+    "native_threads": 1,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "version": "0.3.34.0.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "timing": "perf_counter wall time; includes model-specific scaling and prediction batching; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-22T20:28:01.978110+00:00"
+}

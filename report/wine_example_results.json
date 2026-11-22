@@ -1,0 +1,132 @@
+{
+  "source": "data/raw/benchmark9/wine.data",
+  "feature": "flavonoids",
+  "raw_column_1_based": 8,
+  "training_source_rows": [
+    1,
+    2,
+    3,
+    131,
+    132,
+    133
+  ],
+  "test_source_rows": [
+    6,
+    137
+  ],
+  "split": {
+    "method": "stratified",
+    "seed": 42,
+    "requested_test_fraction": 0.2,
+    "full_training_rows": 142,
+    "full_test_rows": 36,
+    "replay_matches_saved_indices": true
+  },
+  "count_order": [
+    1,
+    3
+  ],
+  "candidates": [
+    {
+      "threshold": 1.2349999999999999,
+      "left_counts": [
+        0,
+        2
+      ],
+      "right_counts": [
+        3,
+        1
+      ],
+      "scores": {
+        "gain": 0.4591479170272448,
+        "gain_ratio": 0.5,
+        "gini": 0.25
+      }
+    },
+    {
+      "threshold": 2.005,
+      "left_counts": [
+        0,
+        3
+      ],
+      "right_counts": [
+        3,
+        0
+      ],
+      "scores": {
+        "gain": 1.0,
+        "gain_ratio": 1.0,
+        "gini": 0.5
+      }
+    },
+    {
+      "threshold": 2.91,
+      "left_counts": [
+        1,
+        3
+      ],
+      "right_counts": [
+        2,
+        0
+      ],
+      "scores": {
+        "gain": 0.4591479170272448,
+        "gain_ratio": 0.5,
+        "gini": 0.25
+      }
+    }
+  ],
+  "models": [
+    {
+      "criterion": "gain",
+      "threshold": 2.005,
+      "nodes": 3,
+      "train_predictions": [
+        1,
+        1,
+        1,
+        3,
+        3,
+        3
+      ],
+      "test_predictions": [
+        1,
+        3
+      ]
+    },
+    {
+      "criterion": "gain_ratio",
+      "threshold": 2.005,
+      "nodes": 3,
+      "train_predictions": [
+        1,
+        1,
+        1,
+        3,
+        3,
+        3
+      ],
+      "test_predictions": [
+        1,
+        3
+      ]
+    },
+    {
+      "criterion": "gini",
+      "threshold": 2.005,
+      "nodes": 3,
+      "train_predictions": [
+        1,
+        1,
+        1,
+        3,
+        3,
+        3
+      ],
+      "test_predictions": [
+        1,
+        3
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+-r scripts/requirements.txt
+psutil>=5.9,<8
+matplotlib>=3.7,<4
+scikit-learn>=1.4,<2
+threadpoolctl>=3.5,<4

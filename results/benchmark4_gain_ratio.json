@@ -1,0 +1,98 @@
+{
+  "benchmark": 4,
+  "dataset": "Contraceptive method choice",
+  "criterion": "gain_ratio",
+  "train_rows": 1178,
+  "test_rows": 295,
+  "features": 31,
+  "classes": [
+    "1",
+    "2",
+    "3"
+  ],
+  "split": "stratified",
+  "preprocessing_notes": [],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 153,
+    "leaves": 77,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 0.10394770000129938,
+    "baseline_rss_mib": 31.07421875,
+    "sampled_peak_rss_mib": 31.8671875,
+    "sampled_increase_mib": 0.79296875
+  },
+  "prediction": {
+    "seconds": 0.0004390999674797058,
+    "baseline_rss_mib": 31.85546875,
+    "sampled_peak_rss_mib": 31.90234375,
+    "sampled_increase_mib": 0.046875
+  },
+  "evaluation": {
+    "accuracy": 0.5186440677966102,
+    "macro_precision": 0.517733728260044,
+    "macro_recall": 0.5051330648345573,
+    "macro_f1": 0.49504897964850475,
+    "confusion_matrix": [
+      [
+        85,
+        23,
+        18
+      ],
+      [
+        28,
+        34,
+        5
+      ],
+      [
+        41,
+        27,
+        34
+      ]
+    ],
+    "precision_per_class": [
+      0.551948051948052,
+      0.40476190476190477,
+      0.5964912280701754
+    ],
+    "recall_per_class": [
+      0.6746031746031746,
+      0.5074626865671642,
+      0.3333333333333333
+    ],
+    "f1_per_class": [
+      0.6071428571428571,
+      0.4503311258278146,
+      0.42767295597484273
+    ],
+    "support": [
+      126,
+      67,
+      102
+    ]
+  },
+  "majority_baseline_accuracy": 0.4271186440677966,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-21T23:52:17.044475+00:00"
+}

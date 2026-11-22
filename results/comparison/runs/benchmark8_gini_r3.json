@@ -1,0 +1,187 @@
+{
+  "benchmark": 8,
+  "dataset": "Steel industry",
+  "criterion": "gini",
+  "model": "gini",
+  "family": "custom_tree",
+  "repetition": 3,
+  "warnings": [],
+  "converged": true,
+  "solver_iterations": [],
+  "input_sha256": "f1069a30914567212e2dc07bcec9ae2994e41a376298e5289f84e492944ae691",
+  "preprocessing_sha256": "b2aae88cf7efc03ab480334827feb09971f919792fba16e7ddcfb7afe77c7496",
+  "predictions_file": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison\\predictions\\benchmark8_gini_r3.npz",
+  "train_rows": 28032,
+  "test_rows": 7008,
+  "features": 18,
+  "classes": [
+    "Light_Load",
+    "Maximum_Load",
+    "Medium_Load"
+  ],
+  "split": "chronological",
+  "preprocessing_notes": [
+    "Rows sorted by timestamp, then split chronologically. Timestamp excluded; row indices refer to this sorted order.",
+    "This classifies load type using same-time measurements, including Usage_kWh; it is not a future-load forecast."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 741,
+    "leaves": 371,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 0.3987247000914067,
+    "baseline_rss_mib": 144.40625,
+    "sampled_peak_rss_mib": 150.83203125,
+    "sampled_increase_mib": 6.42578125
+  },
+  "prediction": {
+    "seconds": 0.0049822001019492745,
+    "baseline_rss_mib": 146.98046875,
+    "sampled_peak_rss_mib": 147.0234375,
+    "sampled_increase_mib": 0.04296875
+  },
+  "evaluation": {
+    "accuracy": 0.7578481735159818,
+    "macro_precision": 0.6737041322222121,
+    "macro_recall": 0.6754696912382602,
+    "macro_f1": 0.6743831444412004,
+    "confusion_matrix": [
+      [
+        3501,
+        24,
+        179
+      ],
+      [
+        39,
+        694,
+        683
+      ],
+      [
+        46,
+        726,
+        1116
+      ]
+    ],
+    "precision_per_class": [
+      0.9762967094255438,
+      0.4806094182825485,
+      0.564206268958544
+    ],
+    "recall_per_class": [
+      0.9451943844492441,
+      0.4901129943502825,
+      0.5911016949152542
+    ],
+    "f1_per_class": [
+      0.9604938271604938,
+      0.48531468531468536,
+      0.577340920848422
+    ],
+    "support": [
+      3704,
+      1416,
+      1888
+    ]
+  },
+  "training_evaluation": {
+    "accuracy": 0.94962899543379,
+    "macro_precision": 0.9373518715781254,
+    "macro_recall": 0.9388561684333938,
+    "macro_f1": 0.9380903704280036,
+    "confusion_matrix": [
+      [
+        14094,
+        7,
+        267
+      ],
+      [
+        38,
+        5420,
+        398
+      ],
+      [
+        201,
+        501,
+        7106
+      ]
+    ],
+    "precision_per_class": [
+      0.9833251936091537,
+      0.9143049932523617,
+      0.9144254278728606
+    ],
+    "recall_per_class": [
+      0.9809298440979956,
+      0.9255464480874317,
+      0.9100922131147541
+    ],
+    "f1_per_class": [
+      0.9821260583254939,
+      0.9198913781398507,
+      0.9122536748186661
+    ],
+    "support": [
+      14368,
+      5856,
+      7808
+    ]
+  },
+  "majority_baseline_accuracy": 0.5285388127853882,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "batch_size": 2048,
+    "native_threads": 1,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "version": "0.3.34.0.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "timing": "perf_counter wall time; includes model-specific scaling and prediction batching; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-22T20:34:59.900859+00:00"
+}

@@ -1,0 +1,459 @@
+{
+  "benchmark": 7,
+  "dataset": "Poker hand",
+  "criterion": "gain_ratio",
+  "model": "gain_ratio",
+  "family": "custom_tree",
+  "repetition": 3,
+  "warnings": [],
+  "converged": true,
+  "solver_iterations": [],
+  "input_sha256": "6191340464f45dab61552221b181a9c055905087024d0ea4992f6767a85864bc",
+  "preprocessing_sha256": "78fa7c454ef1f3bf50327af0bd9d817e6debcaa2438a1f6ba46d74b37906f85f",
+  "predictions_file": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison\\predictions\\benchmark7_gain_ratio_r3.npz",
+  "train_rows": 25010,
+  "test_rows": 1000000,
+  "features": 30,
+  "classes": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "split": "official",
+  "preprocessing_notes": [
+    "Suits are categorical; ranks are ordered numeric values. Original card positions are retained."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 1003,
+    "leaves": 502,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 1.238286100095138,
+    "baseline_rss_mib": 263.94140625,
+    "sampled_peak_rss_mib": 273.33984375,
+    "sampled_increase_mib": 9.3984375
+  },
+  "prediction": {
+    "seconds": 1.1482739000348374,
+    "baseline_rss_mib": 265.53125,
+    "sampled_peak_rss_mib": 269.390625,
+    "sampled_increase_mib": 3.859375
+  },
+  "evaluation": {
+    "accuracy": 0.579135,
+    "macro_precision": 0.2438744554031454,
+    "macro_recall": 0.14023370080678926,
+    "macro_f1": 0.14863578130073204,
+    "confusion_matrix": [
+      [
+        351815,
+        149159,
+        52,
+        57,
+        0,
+        126,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        193442,
+        223490,
+        5031,
+        508,
+        13,
+        14,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        10754,
+        35217,
+        1416,
+        206,
+        1,
+        0,
+        0,
+        28,
+        0,
+        0
+      ],
+      [
+        6498,
+        11889,
+        342,
+        2361,
+        5,
+        0,
+        0,
+        26,
+        0,
+        0
+      ],
+      [
+        1119,
+        2763,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1385,
+        561,
+        0,
+        0,
+        0,
+        50,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        74,
+        1166,
+        20,
+        157,
+        0,
+        0,
+        0,
+        7,
+        0,
+        0
+      ],
+      [
+        35,
+        137,
+        17,
+        40,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "precision_per_class": [
+      0.6225414818262089,
+      0.5266121887311731,
+      0.20584387265590928,
+      0.7092219885851607,
+      0.09523809523809523,
+      0.2631578947368421,
+      0.0,
+      0.016129032258064516,
+      0.0,
+      0.0
+    ],
+    "recall_per_class": [
+      0.7019327266669194,
+      0.5289729182149975,
+      0.0297341564822981,
+      0.11178447990151981,
+      0.0005148005148005148,
+      0.025050100200400802,
+      0.0,
+      0.004347826086956522,
+      0.0,
+      0.0
+    ],
+    "f1_per_class": [
+      0.659857680881073,
+      0.5277899136841857,
+      0.05196234931469147,
+      0.19312883435582823,
+      0.0010240655401945725,
+      0.045745654162854525,
+      0.0,
+      0.006849315068493151,
+      0.0,
+      0.0
+    ],
+    "support": [
+      501209,
+      422498,
+      47622,
+      21121,
+      3885,
+      1996,
+      1424,
+      230,
+      12,
+      3
+    ]
+  },
+  "training_evaluation": {
+    "accuracy": 0.6052778888444622,
+    "macro_precision": 0.5947388066544655,
+    "macro_recall": 0.20086088249523254,
+    "macro_f1": 0.24277971102261503,
+    "confusion_matrix": [
+      [
+        9005,
+        3487,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        4664,
+        5913,
+        21,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        282,
+        807,
+        115,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        150,
+        264,
+        3,
+        96,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        22,
+        69,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        36,
+        13,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        31,
+        1,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        1,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "precision_per_class": [
+      0.6357218496293682,
+      0.5581988105352591,
+      0.8214285714285714,
+      0.9320388349514563,
+      1.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "recall_per_class": [
+      0.7208036500440247,
+      0.5578828191338806,
+      0.09535655058043117,
+      0.1871345029239766,
+      0.021505376344086023,
+      0.09259259259259259,
+      0.0,
+      0.3333333333333333,
+      0.0,
+      0.0
+    ],
+    "f1_per_class": [
+      0.6755945682346763,
+      0.5580407701019252,
+      0.17087667161961367,
+      0.3116883116883117,
+      0.04210526315789474,
+      0.1694915254237288,
+      0.0,
+      0.5,
+      0.0,
+      0.0
+    ],
+    "support": [
+      12493,
+      10599,
+      1206,
+      513,
+      93,
+      54,
+      36,
+      6,
+      5,
+      5
+    ]
+  },
+  "majority_baseline_accuracy": 0.501209,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "batch_size": 2048,
+    "native_threads": 1,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "version": "0.3.34.0.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 1,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+        "version": "0.3.31.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "timing": "perf_counter wall time; includes model-specific scaling and prediction batching; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-22T20:34:29.493730+00:00"
+}

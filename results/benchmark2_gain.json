@@ -1,0 +1,88 @@
+{
+  "benchmark": 2,
+  "dataset": "Cervical cancer risk factors",
+  "criterion": "gain",
+  "train_rows": 686,
+  "test_rows": 172,
+  "features": 28,
+  "classes": [
+    "0",
+    "1"
+  ],
+  "split": "stratified",
+  "preprocessing_notes": [
+    "Other screening outcomes and diagnosis columns are excluded to avoid using diagnostic results as risk predictors."
+  ],
+  "config": {
+    "max_depth": 12,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_impurity_decrease": 0.0
+  },
+  "tree": {
+    "nodes": 73,
+    "leaves": 37,
+    "depth": 12
+  },
+  "training": {
+    "seconds": 0.04091490001883358,
+    "baseline_rss_mib": 30.9140625,
+    "sampled_peak_rss_mib": 31.5625,
+    "sampled_increase_mib": 0.6484375
+  },
+  "prediction": {
+    "seconds": 0.0002481999108567834,
+    "baseline_rss_mib": 31.55859375,
+    "sampled_peak_rss_mib": 31.59375,
+    "sampled_increase_mib": 0.03515625
+  },
+  "evaluation": {
+    "accuracy": 0.936046511627907,
+    "macro_precision": 0.4680232558139535,
+    "macro_recall": 0.5,
+    "macro_f1": 0.4834834834834835,
+    "confusion_matrix": [
+      [
+        161,
+        0
+      ],
+      [
+        11,
+        0
+      ]
+    ],
+    "precision_per_class": [
+      0.936046511627907,
+      0.0
+    ],
+    "recall_per_class": [
+      1.0,
+      0.0
+    ],
+    "f1_per_class": [
+      0.966966966966967,
+      0.0
+    ],
+    "support": [
+      161,
+      11
+    ]
+  },
+  "majority_baseline_accuracy": 0.936046511627907,
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "psutil": "7.2.2",
+    "os": "Windows-11-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 16,
+    "system_memory_gib": 31.842281341552734
+  },
+  "measurement": {
+    "memory": "sampled process RSS, includes data and Python runtime",
+    "sample_interval_seconds": 0.005,
+    "repetitions": 1,
+    "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+  },
+  "completed_at_utc": "2026-11-21T23:52:14.919504+00:00"
+}

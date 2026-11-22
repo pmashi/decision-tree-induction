@@ -1,0 +1,4079 @@
+[
+  {
+    "benchmark": 1,
+    "dataset": "Breast cancer",
+    "criterion": "gain",
+    "train_rows": 229,
+    "test_rows": 57,
+    "features": 50,
+    "classes": [
+      "no-recurrence-events",
+      "recurrence-events"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "All original feature values, including interval labels, are treated as categories."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 101,
+      "leaves": 51,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.06579280004370958,
+      "baseline_rss_mib": 30.74609375,
+      "sampled_peak_rss_mib": 31.33984375,
+      "sampled_increase_mib": 0.59375
+    },
+    "prediction": {
+      "seconds": 0.0008435000199824572,
+      "baseline_rss_mib": 31.328125,
+      "sampled_peak_rss_mib": 31.37109375,
+      "sampled_increase_mib": 0.04296875
+    },
+    "evaluation": {
+      "accuracy": 0.7017543859649122,
+      "macro_precision": 0.6173469387755102,
+      "macro_recall": 0.5676470588235294,
+      "macro_f1": 0.5644943820224719,
+      "confusion_matrix": [
+        [
+          36,
+          4
+        ],
+        [
+          13,
+          4
+        ]
+      ],
+      "precision_per_class": [
+        0.7346938775510204,
+        0.5
+      ],
+      "recall_per_class": [
+        0.9,
+        0.23529411764705882
+      ],
+      "f1_per_class": [
+        0.8089887640449438,
+        0.31999999999999995
+      ],
+      "support": [
+        40,
+        17
+      ]
+    },
+    "majority_baseline_accuracy": 0.7017543859649122,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:14.007610+00:00"
+  },
+  {
+    "benchmark": 1,
+    "dataset": "Breast cancer",
+    "criterion": "gain_ratio",
+    "train_rows": 229,
+    "test_rows": 57,
+    "features": 50,
+    "classes": [
+      "no-recurrence-events",
+      "recurrence-events"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "All original feature values, including interval labels, are treated as categories."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 59,
+      "leaves": 30,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.06620629993267357,
+      "baseline_rss_mib": 30.703125,
+      "sampled_peak_rss_mib": 31.25390625,
+      "sampled_increase_mib": 0.55078125
+    },
+    "prediction": {
+      "seconds": 0.00021629990078508854,
+      "baseline_rss_mib": 31.25,
+      "sampled_peak_rss_mib": 31.27734375,
+      "sampled_increase_mib": 0.02734375
+    },
+    "evaluation": {
+      "accuracy": 0.6842105263157895,
+      "macro_precision": 0.5185185185185185,
+      "macro_recall": 0.5044117647058823,
+      "macro_f1": 0.4542553191489362,
+      "confusion_matrix": [
+        [
+          38,
+          2
+        ],
+        [
+          16,
+          1
+        ]
+      ],
+      "precision_per_class": [
+        0.7037037037037037,
+        0.3333333333333333
+      ],
+      "recall_per_class": [
+        0.95,
+        0.058823529411764705
+      ],
+      "f1_per_class": [
+        0.8085106382978724,
+        0.1
+      ],
+      "support": [
+        40,
+        17
+      ]
+    },
+    "majority_baseline_accuracy": 0.7017543859649122,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:14.313298+00:00"
+  },
+  {
+    "benchmark": 1,
+    "dataset": "Breast cancer",
+    "criterion": "gini",
+    "train_rows": 229,
+    "test_rows": 57,
+    "features": 50,
+    "classes": [
+      "no-recurrence-events",
+      "recurrence-events"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "All original feature values, including interval labels, are treated as categories."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 101,
+      "leaves": 51,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.06707079999614507,
+      "baseline_rss_mib": 30.71484375,
+      "sampled_peak_rss_mib": 31.32421875,
+      "sampled_increase_mib": 0.609375
+    },
+    "prediction": {
+      "seconds": 0.0003019999712705612,
+      "baseline_rss_mib": 31.3203125,
+      "sampled_peak_rss_mib": 31.35546875,
+      "sampled_increase_mib": 0.03515625
+    },
+    "evaluation": {
+      "accuracy": 0.6666666666666666,
+      "macro_precision": 0.5446428571428572,
+      "macro_recall": 0.5257352941176471,
+      "macro_f1": 0.5132584269662921,
+      "confusion_matrix": [
+        [
+          35,
+          5
+        ],
+        [
+          14,
+          3
+        ]
+      ],
+      "precision_per_class": [
+        0.7142857142857143,
+        0.375
+      ],
+      "recall_per_class": [
+        0.875,
+        0.17647058823529413
+      ],
+      "f1_per_class": [
+        0.7865168539325842,
+        0.24
+      ],
+      "support": [
+        40,
+        17
+      ]
+    },
+    "majority_baseline_accuracy": 0.7017543859649122,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:14.630292+00:00"
+  },
+  {
+    "benchmark": 2,
+    "dataset": "Cervical cancer risk factors",
+    "criterion": "gain",
+    "train_rows": 686,
+    "test_rows": 172,
+    "features": 28,
+    "classes": [
+      "0",
+      "1"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "Other screening outcomes and diagnosis columns are excluded to avoid using diagnostic results as risk predictors."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 73,
+      "leaves": 37,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.04091490001883358,
+      "baseline_rss_mib": 30.9140625,
+      "sampled_peak_rss_mib": 31.5625,
+      "sampled_increase_mib": 0.6484375
+    },
+    "prediction": {
+      "seconds": 0.0002481999108567834,
+      "baseline_rss_mib": 31.55859375,
+      "sampled_peak_rss_mib": 31.59375,
+      "sampled_increase_mib": 0.03515625
+    },
+    "evaluation": {
+      "accuracy": 0.936046511627907,
+      "macro_precision": 0.4680232558139535,
+      "macro_recall": 0.5,
+      "macro_f1": 0.4834834834834835,
+      "confusion_matrix": [
+        [
+          161,
+          0
+        ],
+        [
+          11,
+          0
+        ]
+      ],
+      "precision_per_class": [
+        0.936046511627907,
+        0.0
+      ],
+      "recall_per_class": [
+        1.0,
+        0.0
+      ],
+      "f1_per_class": [
+        0.966966966966967,
+        0.0
+      ],
+      "support": [
+        161,
+        11
+      ]
+    },
+    "majority_baseline_accuracy": 0.936046511627907,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:14.919504+00:00"
+  },
+  {
+    "benchmark": 2,
+    "dataset": "Cervical cancer risk factors",
+    "criterion": "gain_ratio",
+    "train_rows": 686,
+    "test_rows": 172,
+    "features": 28,
+    "classes": [
+      "0",
+      "1"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "Other screening outcomes and diagnosis columns are excluded to avoid using diagnostic results as risk predictors."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 57,
+      "leaves": 29,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.03973280009813607,
+      "baseline_rss_mib": 30.78515625,
+      "sampled_peak_rss_mib": 31.5625,
+      "sampled_increase_mib": 0.77734375
+    },
+    "prediction": {
+      "seconds": 0.00021199998445808887,
+      "baseline_rss_mib": 31.55078125,
+      "sampled_peak_rss_mib": 31.59765625,
+      "sampled_increase_mib": 0.046875
+    },
+    "evaluation": {
+      "accuracy": 0.9186046511627907,
+      "macro_precision": 0.5700598802395209,
+      "macro_recall": 0.5330321852060982,
+      "macro_f1": 0.5411585365853658,
+      "confusion_matrix": [
+        [
+          157,
+          4
+        ],
+        [
+          10,
+          1
+        ]
+      ],
+      "precision_per_class": [
+        0.9401197604790419,
+        0.2
+      ],
+      "recall_per_class": [
+        0.9751552795031055,
+        0.09090909090909091
+      ],
+      "f1_per_class": [
+        0.9573170731707317,
+        0.12500000000000003
+      ],
+      "support": [
+        161,
+        11
+      ]
+    },
+    "majority_baseline_accuracy": 0.936046511627907,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:15.200280+00:00"
+  },
+  {
+    "benchmark": 2,
+    "dataset": "Cervical cancer risk factors",
+    "criterion": "gini",
+    "train_rows": 686,
+    "test_rows": 172,
+    "features": 28,
+    "classes": [
+      "0",
+      "1"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "Other screening outcomes and diagnosis columns are excluded to avoid using diagnostic results as risk predictors."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 77,
+      "leaves": 39,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.04238250001799315,
+      "baseline_rss_mib": 30.91015625,
+      "sampled_peak_rss_mib": 31.6171875,
+      "sampled_increase_mib": 0.70703125
+    },
+    "prediction": {
+      "seconds": 0.0003076000139117241,
+      "baseline_rss_mib": 31.62109375,
+      "sampled_peak_rss_mib": 31.66015625,
+      "sampled_increase_mib": 0.0390625
+    },
+    "evaluation": {
+      "accuracy": 0.9186046511627907,
+      "macro_precision": 0.46745562130177515,
+      "macro_recall": 0.4906832298136646,
+      "macro_f1": 0.47878787878787876,
+      "confusion_matrix": [
+        [
+          158,
+          3
+        ],
+        [
+          11,
+          0
+        ]
+      ],
+      "precision_per_class": [
+        0.9349112426035503,
+        0.0
+      ],
+      "recall_per_class": [
+        0.9813664596273292,
+        0.0
+      ],
+      "f1_per_class": [
+        0.9575757575757575,
+        0.0
+      ],
+      "support": [
+        161,
+        11
+      ]
+    },
+    "majority_baseline_accuracy": 0.936046511627907,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:15.502119+00:00"
+  },
+  {
+    "benchmark": 3,
+    "dataset": "Computer hardware",
+    "criterion": "gain",
+    "train_rows": 168,
+    "test_rows": 41,
+    "features": 6,
+    "classes": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "Adapted regression task: PRP bands have inclusive upper bounds [20, 100, 200]; final band is above the last bound. Band IDs start at 0.",
+      "Vendor, model, raw PRP and estimated performance ERP are excluded from predictors. Results are not directly comparable to the original regression task."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 65,
+      "leaves": 33,
+      "depth": 7
+    },
+    "training": {
+      "seconds": 0.012859499896876514,
+      "baseline_rss_mib": 30.8359375,
+      "sampled_peak_rss_mib": 31.42578125,
+      "sampled_increase_mib": 0.58984375
+    },
+    "prediction": {
+      "seconds": 0.00020539993420243263,
+      "baseline_rss_mib": 31.4375,
+      "sampled_peak_rss_mib": 31.46484375,
+      "sampled_increase_mib": 0.02734375
+    },
+    "evaluation": {
+      "accuracy": 0.7317073170731707,
+      "macro_precision": 0.7083333333333333,
+      "macro_recall": 0.65,
+      "macro_f1": 0.6538461538461539,
+      "confusion_matrix": [
+        [
+          4,
+          2,
+          0,
+          0
+        ],
+        [
+          3,
+          20,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          3
+        ]
+      ],
+      "precision_per_class": [
+        0.5714285714285714,
+        0.8333333333333334,
+        0.42857142857142855,
+        1.0
+      ],
+      "recall_per_class": [
+        0.6666666666666666,
+        0.8333333333333334,
+        0.6,
+        0.5
+      ],
+      "f1_per_class": [
+        0.6153846153846153,
+        0.8333333333333334,
+        0.5,
+        0.6666666666666666
+      ],
+      "support": [
+        6,
+        24,
+        5,
+        6
+      ]
+    },
+    "majority_baseline_accuracy": 0.5853658536585366,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:15.764198+00:00"
+  },
+  {
+    "benchmark": 3,
+    "dataset": "Computer hardware",
+    "criterion": "gain_ratio",
+    "train_rows": 168,
+    "test_rows": 41,
+    "features": 6,
+    "classes": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "Adapted regression task: PRP bands have inclusive upper bounds [20, 100, 200]; final band is above the last bound. Band IDs start at 0.",
+      "Vendor, model, raw PRP and estimated performance ERP are excluded from predictors. Results are not directly comparable to the original regression task."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 61,
+      "leaves": 31,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.014580599963665009,
+      "baseline_rss_mib": 30.7578125,
+      "sampled_peak_rss_mib": 31.30078125,
+      "sampled_increase_mib": 0.54296875
+    },
+    "prediction": {
+      "seconds": 0.0002354000462219119,
+      "baseline_rss_mib": 31.29296875,
+      "sampled_peak_rss_mib": 31.3359375,
+      "sampled_increase_mib": 0.04296875
+    },
+    "evaluation": {
+      "accuracy": 0.7804878048780488,
+      "macro_precision": 0.7395833333333334,
+      "macro_recall": 0.7250000000000001,
+      "macro_f1": 0.7252886002886003,
+      "confusion_matrix": [
+        [
+          5,
+          1,
+          0,
+          0
+        ],
+        [
+          3,
+          20,
+          1,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          5
+        ]
+      ],
+      "precision_per_class": [
+        0.625,
+        0.8333333333333334,
+        0.5,
+        1.0
+      ],
+      "recall_per_class": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.4,
+        0.8333333333333334
+      ],
+      "f1_per_class": [
+        0.7142857142857143,
+        0.8333333333333334,
+        0.4444444444444445,
+        0.9090909090909091
+      ],
+      "support": [
+        6,
+        24,
+        5,
+        6
+      ]
+    },
+    "majority_baseline_accuracy": 0.5853658536585366,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:16.008074+00:00"
+  },
+  {
+    "benchmark": 3,
+    "dataset": "Computer hardware",
+    "criterion": "gini",
+    "train_rows": 168,
+    "test_rows": 41,
+    "features": 6,
+    "classes": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "Adapted regression task: PRP bands have inclusive upper bounds [20, 100, 200]; final band is above the last bound. Band IDs start at 0.",
+      "Vendor, model, raw PRP and estimated performance ERP are excluded from predictors. Results are not directly comparable to the original regression task."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 67,
+      "leaves": 34,
+      "depth": 9
+    },
+    "training": {
+      "seconds": 0.012814000016078353,
+      "baseline_rss_mib": 30.65625,
+      "sampled_peak_rss_mib": 31.34765625,
+      "sampled_increase_mib": 0.69140625
+    },
+    "prediction": {
+      "seconds": 0.00026709993835538626,
+      "baseline_rss_mib": 31.3359375,
+      "sampled_peak_rss_mib": 31.37890625,
+      "sampled_increase_mib": 0.04296875
+    },
+    "evaluation": {
+      "accuracy": 0.8048780487804879,
+      "macro_precision": 0.7345108695652174,
+      "macro_recall": 0.74375,
+      "macro_f1": 0.7337938657087593,
+      "confusion_matrix": [
+        [
+          5,
+          1,
+          0,
+          0
+        ],
+        [
+          3,
+          21,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          3,
+          1
+        ],
+        [
+          0,
+          0,
+          2,
+          4
+        ]
+      ],
+      "precision_per_class": [
+        0.625,
+        0.9130434782608695,
+        0.6,
+        0.8
+      ],
+      "recall_per_class": [
+        0.8333333333333334,
+        0.875,
+        0.6,
+        0.6666666666666666
+      ],
+      "f1_per_class": [
+        0.7142857142857143,
+        0.8936170212765957,
+        0.6,
+        0.7272727272727272
+      ],
+      "support": [
+        6,
+        24,
+        5,
+        6
+      ]
+    },
+    "majority_baseline_accuracy": 0.5853658536585366,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:16.251838+00:00"
+  },
+  {
+    "benchmark": 4,
+    "dataset": "Contraceptive method choice",
+    "criterion": "gain",
+    "train_rows": 1178,
+    "test_rows": 295,
+    "features": 31,
+    "classes": [
+      "1",
+      "2",
+      "3"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 513,
+      "leaves": 257,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.2113157999701798,
+      "baseline_rss_mib": 31.12890625,
+      "sampled_peak_rss_mib": 31.84765625,
+      "sampled_increase_mib": 0.71875
+    },
+    "prediction": {
+      "seconds": 0.0011567999608814716,
+      "baseline_rss_mib": 31.8359375,
+      "sampled_peak_rss_mib": 31.87890625,
+      "sampled_increase_mib": 0.04296875
+    },
+    "evaluation": {
+      "accuracy": 0.5050847457627119,
+      "macro_precision": 0.46733294093622746,
+      "macro_recall": 0.4667558565714843,
+      "macro_f1": 0.4631018114889083,
+      "confusion_matrix": [
+        [
+          90,
+          13,
+          23
+        ],
+        [
+          24,
+          21,
+          22
+        ],
+        [
+          39,
+          25,
+          38
+        ]
+      ],
+      "precision_per_class": [
+        0.5882352941176471,
+        0.3559322033898305,
+        0.4578313253012048
+      ],
+      "recall_per_class": [
+        0.7142857142857143,
+        0.31343283582089554,
+        0.37254901960784315
+      ],
+      "f1_per_class": [
+        0.6451612903225806,
+        0.33333333333333337,
+        0.41081081081081083
+      ],
+      "support": [
+        126,
+        67,
+        102
+      ]
+    },
+    "majority_baseline_accuracy": 0.4271186440677966,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:16.700932+00:00"
+  },
+  {
+    "benchmark": 4,
+    "dataset": "Contraceptive method choice",
+    "criterion": "gain_ratio",
+    "train_rows": 1178,
+    "test_rows": 295,
+    "features": 31,
+    "classes": [
+      "1",
+      "2",
+      "3"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 153,
+      "leaves": 77,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.10394770000129938,
+      "baseline_rss_mib": 31.07421875,
+      "sampled_peak_rss_mib": 31.8671875,
+      "sampled_increase_mib": 0.79296875
+    },
+    "prediction": {
+      "seconds": 0.0004390999674797058,
+      "baseline_rss_mib": 31.85546875,
+      "sampled_peak_rss_mib": 31.90234375,
+      "sampled_increase_mib": 0.046875
+    },
+    "evaluation": {
+      "accuracy": 0.5186440677966102,
+      "macro_precision": 0.517733728260044,
+      "macro_recall": 0.5051330648345573,
+      "macro_f1": 0.49504897964850475,
+      "confusion_matrix": [
+        [
+          85,
+          23,
+          18
+        ],
+        [
+          28,
+          34,
+          5
+        ],
+        [
+          41,
+          27,
+          34
+        ]
+      ],
+      "precision_per_class": [
+        0.551948051948052,
+        0.40476190476190477,
+        0.5964912280701754
+      ],
+      "recall_per_class": [
+        0.6746031746031746,
+        0.5074626865671642,
+        0.3333333333333333
+      ],
+      "f1_per_class": [
+        0.6071428571428571,
+        0.4503311258278146,
+        0.42767295597484273
+      ],
+      "support": [
+        126,
+        67,
+        102
+      ]
+    },
+    "majority_baseline_accuracy": 0.4271186440677966,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:17.044475+00:00"
+  },
+  {
+    "benchmark": 4,
+    "dataset": "Contraceptive method choice",
+    "criterion": "gini",
+    "train_rows": 1178,
+    "test_rows": 295,
+    "features": 31,
+    "classes": [
+      "1",
+      "2",
+      "3"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 521,
+      "leaves": 261,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.21632200002204627,
+      "baseline_rss_mib": 31.109375,
+      "sampled_peak_rss_mib": 31.9296875,
+      "sampled_increase_mib": 0.8203125
+    },
+    "prediction": {
+      "seconds": 0.0011396000627428293,
+      "baseline_rss_mib": 31.91796875,
+      "sampled_peak_rss_mib": 31.9609375,
+      "sampled_increase_mib": 0.04296875
+    },
+    "evaluation": {
+      "accuracy": 0.5050847457627119,
+      "macro_precision": 0.4780193236714976,
+      "macro_recall": 0.4768570778228373,
+      "macro_f1": 0.47635703056213097,
+      "confusion_matrix": [
+        [
+          82,
+          15,
+          29
+        ],
+        [
+          23,
+          24,
+          20
+        ],
+        [
+          35,
+          24,
+          43
+        ]
+      ],
+      "precision_per_class": [
+        0.5857142857142857,
+        0.38095238095238093,
+        0.4673913043478261
+      ],
+      "recall_per_class": [
+        0.6507936507936508,
+        0.3582089552238806,
+        0.4215686274509804
+      ],
+      "f1_per_class": [
+        0.6165413533834587,
+        0.36923076923076925,
+        0.44329896907216493
+      ],
+      "support": [
+        126,
+        67,
+        102
+      ]
+    },
+    "majority_baseline_accuracy": 0.4271186440677966,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:17.499480+00:00"
+  },
+  {
+    "benchmark": 5,
+    "dataset": "Human activity recognition",
+    "criterion": "gain",
+    "train_rows": 7352,
+    "test_rows": 2947,
+    "features": 561,
+    "classes": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "split": "official",
+    "preprocessing_notes": [
+      "Uses the 561 supplied engineered features; subject IDs are metadata, not predictors. Original feature normalization is retained."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 255,
+      "leaves": 128,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 23.286596100078896,
+      "baseline_rss_mib": 53.36328125,
+      "sampled_peak_rss_mib": 90.36328125,
+      "sampled_increase_mib": 37.0
+    },
+    "prediction": {
+      "seconds": 0.004274899954907596,
+      "baseline_rss_mib": 57.61328125,
+      "sampled_peak_rss_mib": 57.734375,
+      "sampled_increase_mib": 0.12109375
+    },
+    "evaluation": {
+      "accuracy": 0.8540889039701391,
+      "macro_precision": 0.8530381293711797,
+      "macro_recall": 0.8509579364480512,
+      "macro_f1": 0.850742683674102,
+      "confusion_matrix": [
+        [
+          455,
+          16,
+          25,
+          0,
+          0,
+          0
+        ],
+        [
+          85,
+          348,
+          38,
+          0,
+          0,
+          0
+        ],
+        [
+          17,
+          47,
+          356,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          374,
+          114,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          83,
+          447,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          537
+        ]
+      ],
+      "precision_per_class": [
+        0.8168761220825853,
+        0.8365384615384616,
+        0.8496420047732697,
+        0.8183807439824945,
+        0.7967914438502673,
+        1.0
+      ],
+      "recall_per_class": [
+        0.9173387096774194,
+        0.7388535031847133,
+        0.8476190476190476,
+        0.7617107942973523,
+        0.8402255639097744,
+        1.0
+      ],
+      "f1_per_class": [
+        0.8641975308641976,
+        0.7846674182638106,
+        0.8486293206197854,
+        0.7890295358649788,
+        0.817932296431839,
+        1.0
+      ],
+      "support": [
+        496,
+        471,
+        420,
+        491,
+        532,
+        537
+      ]
+    },
+    "majority_baseline_accuracy": 0.18221920597217509,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:52:41.196964+00:00"
+  },
+  {
+    "benchmark": 5,
+    "dataset": "Human activity recognition",
+    "criterion": "gain_ratio",
+    "train_rows": 7352,
+    "test_rows": 2947,
+    "features": 561,
+    "classes": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "split": "official",
+    "preprocessing_notes": [
+      "Uses the 561 supplied engineered features; subject IDs are metadata, not predictors. Original feature normalization is retained."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 115,
+      "leaves": 58,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 27.847741700010374,
+      "baseline_rss_mib": 53.0546875,
+      "sampled_peak_rss_mib": 90.9609375,
+      "sampled_increase_mib": 37.90625
+    },
+    "prediction": {
+      "seconds": 0.0023981999838724732,
+      "baseline_rss_mib": 57.2890625,
+      "sampled_peak_rss_mib": 57.42578125,
+      "sampled_increase_mib": 0.13671875
+    },
+    "evaluation": {
+      "accuracy": 0.8540889039701391,
+      "macro_precision": 0.8529995878548292,
+      "macro_recall": 0.8498352193172188,
+      "macro_f1": 0.8499563940205371,
+      "confusion_matrix": [
+        [
+          443,
+          14,
+          39,
+          0,
+          0,
+          0
+        ],
+        [
+          61,
+          371,
+          39,
+          0,
+          0,
+          0
+        ],
+        [
+          59,
+          42,
+          319,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          424,
+          67,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          109,
+          423,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          537
+        ]
+      ],
+      "precision_per_class": [
+        0.7868561278863233,
+        0.8688524590163934,
+        0.8035264483627204,
+        0.7954971857410882,
+        0.863265306122449,
+        1.0
+      ],
+      "recall_per_class": [
+        0.8931451612903226,
+        0.7876857749469215,
+        0.7595238095238095,
+        0.8635437881873728,
+        0.7951127819548872,
+        1.0
+      ],
+      "f1_per_class": [
+        0.8366383380547686,
+        0.8262806236080179,
+        0.7809057527539779,
+        0.8281249999999999,
+        0.8277886497064579,
+        1.0
+      ],
+      "support": [
+        496,
+        471,
+        420,
+        491,
+        532,
+        537
+      ]
+    },
+    "majority_baseline_accuracy": 0.18221920597217509,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:09.555214+00:00"
+  },
+  {
+    "benchmark": 5,
+    "dataset": "Human activity recognition",
+    "criterion": "gini",
+    "train_rows": 7352,
+    "test_rows": 2947,
+    "features": 561,
+    "classes": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "split": "official",
+    "preprocessing_notes": [
+      "Uses the 561 supplied engineered features; subject IDs are metadata, not predictors. Original feature normalization is retained."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 265,
+      "leaves": 133,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 25.196183099993505,
+      "baseline_rss_mib": 53.1328125,
+      "sampled_peak_rss_mib": 91.2109375,
+      "sampled_increase_mib": 38.078125
+    },
+    "prediction": {
+      "seconds": 0.0031229000305756927,
+      "baseline_rss_mib": 58.15234375,
+      "sampled_peak_rss_mib": 58.15234375,
+      "sampled_increase_mib": 0.0
+    },
+    "evaluation": {
+      "accuracy": 0.8707159823549372,
+      "macro_precision": 0.8709315139059614,
+      "macro_recall": 0.8674524728220728,
+      "macro_f1": 0.8678741608013864,
+      "confusion_matrix": [
+        [
+          463,
+          16,
+          17,
+          0,
+          0,
+          0
+        ],
+        [
+          70,
+          369,
+          32,
+          0,
+          0,
+          0
+        ],
+        [
+          16,
+          47,
+          357,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          375,
+          116,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          67,
+          465,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          537
+        ]
+      ],
+      "precision_per_class": [
+        0.843351548269581,
+        0.8541666666666666,
+        0.8793103448275862,
+        0.8484162895927602,
+        0.8003442340791739,
+        1.0
+      ],
+      "recall_per_class": [
+        0.9334677419354839,
+        0.7834394904458599,
+        0.85,
+        0.7637474541751528,
+        0.8740601503759399,
+        1.0
+      ],
+      "f1_per_class": [
+        0.8861244019138755,
+        0.8172757475083058,
+        0.864406779661017,
+        0.8038585209003216,
+        0.8355795148247979,
+        1.0
+      ],
+      "support": [
+        496,
+        471,
+        420,
+        491,
+        532,
+        537
+      ]
+    },
+    "majority_baseline_accuracy": 0.18221920597217509,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:35.217975+00:00"
+  },
+  {
+    "benchmark": 6,
+    "dataset": "Japanese vowels",
+    "criterion": "gain",
+    "train_rows": 270,
+    "test_rows": 370,
+    "features": 49,
+    "classes": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "split": "official",
+    "preprocessing_notes": [
+      "One example per utterance; speaker labels follow the supplied size files.",
+      "Each coefficient is summarized by mean, population standard deviation, minimum and maximum; frame count is included. Temporal order is lost."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 51,
+      "leaves": 26,
+      "depth": 6
+    },
+    "training": {
+      "seconds": 0.11769610003102571,
+      "baseline_rss_mib": 30.93359375,
+      "sampled_peak_rss_mib": 31.55078125,
+      "sampled_increase_mib": 0.6171875
+    },
+    "prediction": {
+      "seconds": 0.00022300006821751595,
+      "baseline_rss_mib": 31.546875,
+      "sampled_peak_rss_mib": 31.57421875,
+      "sampled_increase_mib": 0.02734375
+    },
+    "evaluation": {
+      "accuracy": 0.7837837837837838,
+      "macro_precision": 0.78182618176331,
+      "macro_recall": 0.7901109511343104,
+      "macro_f1": 0.7819752516016032,
+      "confusion_matrix": [
+        [
+          25,
+          0,
+          0,
+          0,
+          2,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          0,
+          25,
+          4,
+          4,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          77,
+          2,
+          0,
+          1,
+          4,
+          1,
+          1
+        ],
+        [
+          0,
+          7,
+          0,
+          32,
+          0,
+          0,
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          27,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          23,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          0,
+          1,
+          1,
+          0,
+          32,
+          1,
+          3
+        ],
+        [
+          3,
+          7,
+          8,
+          1,
+          0,
+          0,
+          1,
+          27,
+          3
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          2,
+          22
+        ]
+      ],
+      "precision_per_class": [
+        0.8620689655172413,
+        0.5555555555555556,
+        0.8651685393258427,
+        0.7804878048780488,
+        0.8709677419354839,
+        0.8846153846153846,
+        0.8205128205128205,
+        0.75,
+        0.6470588235294118
+      ],
+      "recall_per_class": [
+        0.8064516129032258,
+        0.7142857142857143,
+        0.875,
+        0.7272727272727273,
+        0.9310344827586207,
+        0.9583333333333334,
+        0.8,
+        0.54,
+        0.7586206896551724
+      ],
+      "f1_per_class": [
+        0.8333333333333334,
+        0.6250000000000001,
+        0.8700564971751412,
+        0.7529411764705882,
+        0.9,
+        0.9199999999999999,
+        0.810126582278481,
+        0.627906976744186,
+        0.6984126984126984
+      ],
+      "support": [
+        31,
+        35,
+        88,
+        44,
+        29,
+        24,
+        40,
+        50,
+        29
+      ]
+    },
+    "majority_baseline_accuracy": 0.08378378378378379,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:35.614215+00:00"
+  },
+  {
+    "benchmark": 6,
+    "dataset": "Japanese vowels",
+    "criterion": "gain_ratio",
+    "train_rows": 270,
+    "test_rows": 370,
+    "features": 49,
+    "classes": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "split": "official",
+    "preprocessing_notes": [
+      "One example per utterance; speaker labels follow the supplied size files.",
+      "Each coefficient is summarized by mean, population standard deviation, minimum and maximum; frame count is included. Temporal order is lost."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 49,
+      "leaves": 25,
+      "depth": 10
+    },
+    "training": {
+      "seconds": 0.1202777000144124,
+      "baseline_rss_mib": 30.84765625,
+      "sampled_peak_rss_mib": 31.4296875,
+      "sampled_increase_mib": 0.58203125
+    },
+    "prediction": {
+      "seconds": 0.00021389999892562628,
+      "baseline_rss_mib": 31.42578125,
+      "sampled_peak_rss_mib": 31.45703125,
+      "sampled_increase_mib": 0.03125
+    },
+    "evaluation": {
+      "accuracy": 0.8027027027027027,
+      "macro_precision": 0.7937780046528674,
+      "macro_recall": 0.8127850650153209,
+      "macro_f1": 0.8012248410863464,
+      "confusion_matrix": [
+        [
+          25,
+          0,
+          0,
+          1,
+          0,
+          1,
+          2,
+          0,
+          2
+        ],
+        [
+          1,
+          24,
+          3,
+          1,
+          0,
+          0,
+          0,
+          5,
+          1
+        ],
+        [
+          0,
+          5,
+          71,
+          0,
+          0,
+          0,
+          6,
+          3,
+          3
+        ],
+        [
+          1,
+          1,
+          0,
+          37,
+          0,
+          0,
+          0,
+          3,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          26,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          24,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          1,
+          2,
+          0,
+          32,
+          0,
+          2
+        ],
+        [
+          4,
+          4,
+          2,
+          2,
+          0,
+          0,
+          0,
+          36,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          2,
+          22
+        ]
+      ],
+      "precision_per_class": [
+        0.6756756756756757,
+        0.7058823529411765,
+        0.9342105263157895,
+        0.8809523809523809,
+        0.8387096774193549,
+        0.96,
+        0.8,
+        0.72,
+        0.6285714285714286
+      ],
+      "recall_per_class": [
+        0.8064516129032258,
+        0.6857142857142857,
+        0.8068181818181818,
+        0.8409090909090909,
+        0.896551724137931,
+        1.0,
+        0.8,
+        0.72,
+        0.7586206896551724
+      ],
+      "f1_per_class": [
+        0.7352941176470588,
+        0.6956521739130436,
+        0.8658536585365854,
+        0.8604651162790699,
+        0.8666666666666666,
+        0.9795918367346939,
+        0.8000000000000002,
+        0.72,
+        0.6875
+      ],
+      "support": [
+        31,
+        35,
+        88,
+        44,
+        29,
+        24,
+        40,
+        50,
+        29
+      ]
+    },
+    "majority_baseline_accuracy": 0.08378378378378379,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:35.965139+00:00"
+  },
+  {
+    "benchmark": 6,
+    "dataset": "Japanese vowels",
+    "criterion": "gini",
+    "train_rows": 270,
+    "test_rows": 370,
+    "features": 49,
+    "classes": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "split": "official",
+    "preprocessing_notes": [
+      "One example per utterance; speaker labels follow the supplied size files.",
+      "Each coefficient is summarized by mean, population standard deviation, minimum and maximum; frame count is included. Temporal order is lost."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 51,
+      "leaves": 26,
+      "depth": 8
+    },
+    "training": {
+      "seconds": 0.09188610001001507,
+      "baseline_rss_mib": 30.94140625,
+      "sampled_peak_rss_mib": 31.46484375,
+      "sampled_increase_mib": 0.5234375
+    },
+    "prediction": {
+      "seconds": 0.0002370000584051013,
+      "baseline_rss_mib": 31.453125,
+      "sampled_peak_rss_mib": 31.4921875,
+      "sampled_increase_mib": 0.0390625
+    },
+    "evaluation": {
+      "accuracy": 0.8,
+      "macro_precision": 0.8087215003004476,
+      "macro_recall": 0.8162827143194218,
+      "macro_f1": 0.8044597972620021,
+      "confusion_matrix": [
+        [
+          26,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          29,
+          0,
+          1,
+          0,
+          0,
+          0,
+          3,
+          2
+        ],
+        [
+          1,
+          10,
+          69,
+          2,
+          0,
+          0,
+          1,
+          4,
+          1
+        ],
+        [
+          0,
+          9,
+          0,
+          33,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          26,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          24,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          30,
+          3,
+          5
+        ],
+        [
+          3,
+          5,
+          0,
+          0,
+          1,
+          0,
+          1,
+          37,
+          3
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          3,
+          0,
+          0,
+          1,
+          22
+        ]
+      ],
+      "precision_per_class": [
+        0.8125,
+        0.5272727272727272,
+        1.0,
+        0.868421052631579,
+        0.8666666666666667,
+        0.96,
+        0.9375,
+        0.7115384615384616,
+        0.5945945945945946
+      ],
+      "recall_per_class": [
+        0.8387096774193549,
+        0.8285714285714286,
+        0.7840909090909091,
+        0.75,
+        0.896551724137931,
+        1.0,
+        0.75,
+        0.74,
+        0.7586206896551724
+      ],
+      "f1_per_class": [
+        0.8253968253968254,
+        0.6444444444444444,
+        0.8789808917197451,
+        0.8048780487804879,
+        0.8813559322033899,
+        0.9795918367346939,
+        0.8333333333333334,
+        0.7254901960784313,
+        0.6666666666666667
+      ],
+      "support": [
+        31,
+        35,
+        88,
+        44,
+        29,
+        24,
+        40,
+        50,
+        29
+      ]
+    },
+    "majority_baseline_accuracy": 0.08378378378378379,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:36.295699+00:00"
+  },
+  {
+    "benchmark": 7,
+    "dataset": "Poker hand",
+    "criterion": "gain",
+    "train_rows": 25010,
+    "test_rows": 1000000,
+    "features": 30,
+    "classes": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "split": "official",
+    "preprocessing_notes": [
+      "Suits are categorical; ranks are ordered numeric values. Original card positions are retained."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 3427,
+      "leaves": 1714,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 2.5388133000815287,
+      "baseline_rss_mib": 151.95703125,
+      "sampled_peak_rss_mib": 162.26171875,
+      "sampled_increase_mib": 10.3046875
+    },
+    "prediction": {
+      "seconds": 0.4068051000358537,
+      "baseline_rss_mib": 154.375,
+      "sampled_peak_rss_mib": 170.7109375,
+      "sampled_increase_mib": 16.3359375
+    },
+    "evaluation": {
+      "accuracy": 0.553566,
+      "macro_precision": 0.15653747967120263,
+      "macro_recall": 0.12737549515008162,
+      "macro_f1": 0.12954140407297363,
+      "confusion_matrix": [
+        [
+          342093,
+          155069,
+          3081,
+          788,
+          123,
+          55,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          202824,
+          208425,
+          8028,
+          2888,
+          307,
+          26,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          15547,
+          29267,
+          2078,
+          636,
+          89,
+          5,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          5981,
+          13425,
+          716,
+          938,
+          26,
+          0,
+          35,
+          0,
+          0,
+          0
+        ],
+        [
+          1011,
+          2773,
+          68,
+          6,
+          27,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1388,
+          595,
+          7,
+          2,
+          1,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          241,
+          993,
+          101,
+          81,
+          6,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          25,
+          168,
+          16,
+          21,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "precision_per_class": [
+        0.6010974954051385,
+        0.507455091715645,
+        0.14742816601631784,
+        0.175,
+        0.046632124352331605,
+        0.033707865168539325,
+        0.05405405405405406,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "recall_per_class": [
+        0.6825356288494421,
+        0.49331594469086243,
+        0.04363529461173407,
+        0.04441077600492401,
+        0.0069498069498069494,
+        0.001503006012024048,
+        0.0014044943820224719,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "f1_per_class": [
+        0.639233203434851,
+        0.5002856374756367,
+        0.06733963089586337,
+        0.07084324610097806,
+        0.012096774193548387,
+        0.0028776978417266188,
+        0.0027378507871321013,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "support": [
+        501209,
+        422498,
+        47622,
+        21121,
+        3885,
+        1996,
+        1424,
+        230,
+        12,
+        3
+      ]
+    },
+    "majority_baseline_accuracy": 0.501209,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:39.799591+00:00"
+  },
+  {
+    "benchmark": 7,
+    "dataset": "Poker hand",
+    "criterion": "gain_ratio",
+    "train_rows": 25010,
+    "test_rows": 1000000,
+    "features": 30,
+    "classes": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "split": "official",
+    "preprocessing_notes": [
+      "Suits are categorical; ranks are ordered numeric values. Original card positions are retained."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 1003,
+      "leaves": 502,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 1.2375149999279529,
+      "baseline_rss_mib": 151.75390625,
+      "sampled_peak_rss_mib": 163.28125,
+      "sampled_increase_mib": 11.52734375
+    },
+    "prediction": {
+      "seconds": 0.23521559999790043,
+      "baseline_rss_mib": 154.12890625,
+      "sampled_peak_rss_mib": 168.73046875,
+      "sampled_increase_mib": 14.6015625
+    },
+    "evaluation": {
+      "accuracy": 0.579135,
+      "macro_precision": 0.2438744554031454,
+      "macro_recall": 0.14023370080678926,
+      "macro_f1": 0.14863578130073204,
+      "confusion_matrix": [
+        [
+          351815,
+          149159,
+          52,
+          57,
+          0,
+          126,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          193442,
+          223490,
+          5031,
+          508,
+          13,
+          14,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          10754,
+          35217,
+          1416,
+          206,
+          1,
+          0,
+          0,
+          28,
+          0,
+          0
+        ],
+        [
+          6498,
+          11889,
+          342,
+          2361,
+          5,
+          0,
+          0,
+          26,
+          0,
+          0
+        ],
+        [
+          1119,
+          2763,
+          1,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1385,
+          561,
+          0,
+          0,
+          0,
+          50,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          74,
+          1166,
+          20,
+          157,
+          0,
+          0,
+          0,
+          7,
+          0,
+          0
+        ],
+        [
+          35,
+          137,
+          17,
+          40,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "precision_per_class": [
+        0.6225414818262089,
+        0.5266121887311731,
+        0.20584387265590928,
+        0.7092219885851607,
+        0.09523809523809523,
+        0.2631578947368421,
+        0.0,
+        0.016129032258064516,
+        0.0,
+        0.0
+      ],
+      "recall_per_class": [
+        0.7019327266669194,
+        0.5289729182149975,
+        0.0297341564822981,
+        0.11178447990151981,
+        0.0005148005148005148,
+        0.025050100200400802,
+        0.0,
+        0.004347826086956522,
+        0.0,
+        0.0
+      ],
+      "f1_per_class": [
+        0.659857680881073,
+        0.5277899136841857,
+        0.05196234931469147,
+        0.19312883435582823,
+        0.0010240655401945725,
+        0.045745654162854525,
+        0.0,
+        0.006849315068493151,
+        0.0,
+        0.0
+      ],
+      "support": [
+        501209,
+        422498,
+        47622,
+        21121,
+        3885,
+        1996,
+        1424,
+        230,
+        12,
+        3
+      ]
+    },
+    "majority_baseline_accuracy": 0.501209,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:41.852728+00:00"
+  },
+  {
+    "benchmark": 7,
+    "dataset": "Poker hand",
+    "criterion": "gini",
+    "train_rows": 25010,
+    "test_rows": 1000000,
+    "features": 30,
+    "classes": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "split": "official",
+    "preprocessing_notes": [
+      "Suits are categorical; ranks are ordered numeric values. Original card positions are retained."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 1831,
+      "leaves": 916,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 1.3674701999407262,
+      "baseline_rss_mib": 151.6953125,
+      "sampled_peak_rss_mib": 162.20703125,
+      "sampled_increase_mib": 10.51171875
+    },
+    "prediction": {
+      "seconds": 0.2598574999719858,
+      "baseline_rss_mib": 153.64453125,
+      "sampled_peak_rss_mib": 174.29296875,
+      "sampled_increase_mib": 20.6484375
+    },
+    "evaluation": {
+      "accuracy": 0.549158,
+      "macro_precision": 0.2864999370987269,
+      "macro_recall": 0.1491642769949818,
+      "macro_f1": 0.166192901438651,
+      "confusion_matrix": [
+        [
+          360867,
+          140118,
+          83,
+          141,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          232080,
+          185169,
+          4743,
+          506,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          18072,
+          28029,
+          1394,
+          127,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          8398,
+          11151,
+          334,
+          1238,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1482,
+          2377,
+          4,
+          22,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1209,
+          297,
+          0,
+          0,
+          0,
+          490,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          293,
+          1027,
+          28,
+          76,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          52,
+          142,
+          17,
+          19,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          7,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "precision_per_class": [
+        0.5797470021977457,
+        0.5027435605741793,
+        0.21111615932152053,
+        0.5814936589948333,
+        0.0,
+        0.98989898989899,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "recall_per_class": [
+        0.719993056788685,
+        0.43827189714507525,
+        0.02927218512452228,
+        0.05861464892760759,
+        0.0,
+        0.24549098196392785,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "f1_per_class": [
+        0.6423035335264513,
+        0.46829915972762276,
+        0.05141539880129092,
+        0.10649462365591397,
+        0.0,
+        0.39341629867523087,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "support": [
+        501209,
+        422498,
+        47622,
+        21121,
+        3885,
+        1996,
+        1424,
+        230,
+        12,
+        3
+      ]
+    },
+    "majority_baseline_accuracy": 0.501209,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:44.023819+00:00"
+  },
+  {
+    "benchmark": 8,
+    "dataset": "Steel industry",
+    "criterion": "gain",
+    "train_rows": 28032,
+    "test_rows": 7008,
+    "features": 18,
+    "classes": [
+      "Light_Load",
+      "Maximum_Load",
+      "Medium_Load"
+    ],
+    "split": "chronological",
+    "preprocessing_notes": [
+      "Rows sorted by timestamp, then split chronologically. Timestamp excluded; row indices refer to this sorted order.",
+      "This classifies load type using same-time measurements, including Usage_kWh; it is not a future-load forecast."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 693,
+      "leaves": 347,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.36128120007924736,
+      "baseline_rss_mib": 33.2421875,
+      "sampled_peak_rss_mib": 40.8203125,
+      "sampled_increase_mib": 7.578125
+    },
+    "prediction": {
+      "seconds": 0.0019522999646142125,
+      "baseline_rss_mib": 36.10546875,
+      "sampled_peak_rss_mib": 36.50390625,
+      "sampled_increase_mib": 0.3984375
+    },
+    "evaluation": {
+      "accuracy": 0.7565639269406392,
+      "macro_precision": 0.6715621330486871,
+      "macro_recall": 0.6733579110281346,
+      "macro_f1": 0.6722649614226625,
+      "confusion_matrix": [
+        [
+          3505,
+          23,
+          176
+        ],
+        [
+          38,
+          691,
+          687
+        ],
+        [
+          43,
+          739,
+          1106
+        ]
+      ],
+      "precision_per_class": [
+        0.9774121583937535,
+        0.4755677907777013,
+        0.5617064499746064
+      ],
+      "recall_per_class": [
+        0.9462742980561555,
+        0.4879943502824859,
+        0.5858050847457628
+      ],
+      "f1_per_class": [
+        0.9615912208504801,
+        0.481700941094458,
+        0.573502722323049
+      ],
+      "support": [
+        3704,
+        1416,
+        1888
+      ]
+    },
+    "majority_baseline_accuracy": 0.5285388127853882,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:44.636439+00:00"
+  },
+  {
+    "benchmark": 8,
+    "dataset": "Steel industry",
+    "criterion": "gain_ratio",
+    "train_rows": 28032,
+    "test_rows": 7008,
+    "features": 18,
+    "classes": [
+      "Light_Load",
+      "Maximum_Load",
+      "Medium_Load"
+    ],
+    "split": "chronological",
+    "preprocessing_notes": [
+      "Rows sorted by timestamp, then split chronologically. Timestamp excluded; row indices refer to this sorted order.",
+      "This classifies load type using same-time measurements, including Usage_kWh; it is not a future-load forecast."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 303,
+      "leaves": 152,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.28510769992135465,
+      "baseline_rss_mib": 33.15625,
+      "sampled_peak_rss_mib": 41.140625,
+      "sampled_increase_mib": 7.984375
+    },
+    "prediction": {
+      "seconds": 0.0009398000547662377,
+      "baseline_rss_mib": 35.47265625,
+      "sampled_peak_rss_mib": 36.03515625,
+      "sampled_increase_mib": 0.5625
+    },
+    "evaluation": {
+      "accuracy": 0.7492865296803652,
+      "macro_precision": 0.6591794110508414,
+      "macro_recall": 0.6606318104721114,
+      "macro_f1": 0.6597531575398854,
+      "confusion_matrix": [
+        [
+          3531,
+          14,
+          159
+        ],
+        [
+          42,
+          666,
+          708
+        ],
+        [
+          32,
+          802,
+          1054
+        ]
+      ],
+      "precision_per_class": [
+        0.9794729542302358,
+        0.4493927125506073,
+        0.5486725663716814
+      ],
+      "recall_per_class": [
+        0.95329373650108,
+        0.4703389830508475,
+        0.5582627118644068
+      ],
+      "f1_per_class": [
+        0.9662060473388974,
+        0.4596273291925466,
+        0.5534260960882121
+      ],
+      "support": [
+        3704,
+        1416,
+        1888
+      ]
+    },
+    "majority_baseline_accuracy": 0.5285388127853882,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:45.163561+00:00"
+  },
+  {
+    "benchmark": 8,
+    "dataset": "Steel industry",
+    "criterion": "gini",
+    "train_rows": 28032,
+    "test_rows": 7008,
+    "features": 18,
+    "classes": [
+      "Light_Load",
+      "Maximum_Load",
+      "Medium_Load"
+    ],
+    "split": "chronological",
+    "preprocessing_notes": [
+      "Rows sorted by timestamp, then split chronologically. Timestamp excluded; row indices refer to this sorted order.",
+      "This classifies load type using same-time measurements, including Usage_kWh; it is not a future-load forecast."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 741,
+      "leaves": 371,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.3568922000704333,
+      "baseline_rss_mib": 33.28515625,
+      "sampled_peak_rss_mib": 40.5625,
+      "sampled_increase_mib": 7.27734375
+    },
+    "prediction": {
+      "seconds": 0.0021220999769866467,
+      "baseline_rss_mib": 35.828125,
+      "sampled_peak_rss_mib": 36.20703125,
+      "sampled_increase_mib": 0.37890625
+    },
+    "evaluation": {
+      "accuracy": 0.7578481735159818,
+      "macro_precision": 0.6737041322222121,
+      "macro_recall": 0.6754696912382602,
+      "macro_f1": 0.6743831444412004,
+      "confusion_matrix": [
+        [
+          3501,
+          24,
+          179
+        ],
+        [
+          39,
+          694,
+          683
+        ],
+        [
+          46,
+          726,
+          1116
+        ]
+      ],
+      "precision_per_class": [
+        0.9762967094255438,
+        0.4806094182825485,
+        0.564206268958544
+      ],
+      "recall_per_class": [
+        0.9451943844492441,
+        0.4901129943502825,
+        0.5911016949152542
+      ],
+      "f1_per_class": [
+        0.9604938271604938,
+        0.48531468531468536,
+        0.577340920848422
+      ],
+      "support": [
+        3704,
+        1416,
+        1888
+      ]
+    },
+    "majority_baseline_accuracy": 0.5285388127853882,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:45.770547+00:00"
+  },
+  {
+    "benchmark": 9,
+    "dataset": "Wine",
+    "criterion": "gain",
+    "train_rows": 142,
+    "test_rows": 36,
+    "features": 13,
+    "classes": [
+      "1",
+      "2",
+      "3"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 13,
+      "leaves": 7,
+      "depth": 3
+    },
+    "training": {
+      "seconds": 0.006243700045160949,
+      "baseline_rss_mib": 30.54296875,
+      "sampled_peak_rss_mib": 31.359375,
+      "sampled_increase_mib": 0.81640625
+    },
+    "prediction": {
+      "seconds": 7.720000576227903e-05,
+      "baseline_rss_mib": 31.34765625,
+      "sampled_peak_rss_mib": 31.3828125,
+      "sampled_increase_mib": 0.03515625
+    },
+    "evaluation": {
+      "accuracy": 0.9166666666666666,
+      "macro_precision": 0.9222222222222222,
+      "macro_recall": 0.915079365079365,
+      "macro_f1": 0.9176911544227887,
+      "confusion_matrix": [
+        [
+          11,
+          1,
+          0
+        ],
+        [
+          0,
+          13,
+          1
+        ],
+        [
+          0,
+          1,
+          9
+        ]
+      ],
+      "precision_per_class": [
+        1.0,
+        0.8666666666666667,
+        0.9
+      ],
+      "recall_per_class": [
+        0.9166666666666666,
+        0.9285714285714286,
+        0.9
+      ],
+      "f1_per_class": [
+        0.9565217391304348,
+        0.896551724137931,
+        0.9
+      ],
+      "support": [
+        12,
+        14,
+        10
+      ]
+    },
+    "majority_baseline_accuracy": 0.3888888888888889,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:46.013147+00:00"
+  },
+  {
+    "benchmark": 9,
+    "dataset": "Wine",
+    "criterion": "gain_ratio",
+    "train_rows": 142,
+    "test_rows": 36,
+    "features": 13,
+    "classes": [
+      "1",
+      "2",
+      "3"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 11,
+      "leaves": 6,
+      "depth": 3
+    },
+    "training": {
+      "seconds": 0.007177099934779108,
+      "baseline_rss_mib": 30.734375,
+      "sampled_peak_rss_mib": 31.6015625,
+      "sampled_increase_mib": 0.8671875
+    },
+    "prediction": {
+      "seconds": 0.0001121999230235815,
+      "baseline_rss_mib": 31.59375,
+      "sampled_peak_rss_mib": 31.62890625,
+      "sampled_increase_mib": 0.03515625
+    },
+    "evaluation": {
+      "accuracy": 0.9166666666666666,
+      "macro_precision": 0.9153846153846154,
+      "macro_recall": 0.919047619047619,
+      "macro_f1": 0.9162962962962964,
+      "confusion_matrix": [
+        [
+          12,
+          0,
+          0
+        ],
+        [
+          1,
+          12,
+          1
+        ],
+        [
+          0,
+          1,
+          9
+        ]
+      ],
+      "precision_per_class": [
+        0.9230769230769231,
+        0.9230769230769231,
+        0.9
+      ],
+      "recall_per_class": [
+        1.0,
+        0.8571428571428571,
+        0.9
+      ],
+      "f1_per_class": [
+        0.9600000000000001,
+        0.888888888888889,
+        0.9
+      ],
+      "support": [
+        12,
+        14,
+        10
+      ]
+    },
+    "majority_baseline_accuracy": 0.3888888888888889,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:46.250241+00:00"
+  },
+  {
+    "benchmark": 9,
+    "dataset": "Wine",
+    "criterion": "gini",
+    "train_rows": 142,
+    "test_rows": 36,
+    "features": 13,
+    "classes": [
+      "1",
+      "2",
+      "3"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 15,
+      "leaves": 8,
+      "depth": 4
+    },
+    "training": {
+      "seconds": 0.006618399987928569,
+      "baseline_rss_mib": 30.74609375,
+      "sampled_peak_rss_mib": 31.3046875,
+      "sampled_increase_mib": 0.55859375
+    },
+    "prediction": {
+      "seconds": 8.910009637475014e-05,
+      "baseline_rss_mib": 31.296875,
+      "sampled_peak_rss_mib": 31.33203125,
+      "sampled_increase_mib": 0.03515625
+    },
+    "evaluation": {
+      "accuracy": 0.9166666666666666,
+      "macro_precision": 0.9222222222222222,
+      "macro_recall": 0.915079365079365,
+      "macro_f1": 0.9176911544227887,
+      "confusion_matrix": [
+        [
+          11,
+          1,
+          0
+        ],
+        [
+          0,
+          13,
+          1
+        ],
+        [
+          0,
+          1,
+          9
+        ]
+      ],
+      "precision_per_class": [
+        1.0,
+        0.8666666666666667,
+        0.9
+      ],
+      "recall_per_class": [
+        0.9166666666666666,
+        0.9285714285714286,
+        0.9
+      ],
+      "f1_per_class": [
+        0.9565217391304348,
+        0.896551724137931,
+        0.9
+      ],
+      "support": [
+        12,
+        14,
+        10
+      ]
+    },
+    "majority_baseline_accuracy": 0.3888888888888889,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:46.489233+00:00"
+  },
+  {
+    "benchmark": 10,
+    "dataset": "Wine quality",
+    "criterion": "gain",
+    "train_rows": 5197,
+    "test_rows": 1300,
+    "features": 14,
+    "classes": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "Red and white wines are combined with a color feature. Original integer quality scores are classification labels."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 1393,
+      "leaves": 697,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.5847320000175387,
+      "baseline_rss_mib": 31.234375,
+      "sampled_peak_rss_mib": 33.7109375,
+      "sampled_increase_mib": 2.4765625
+    },
+    "prediction": {
+      "seconds": 0.0031651000026613474,
+      "baseline_rss_mib": 32.76171875,
+      "sampled_peak_rss_mib": 32.83984375,
+      "sampled_increase_mib": 0.078125
+    },
+    "evaluation": {
+      "accuracy": 0.5746153846153846,
+      "macro_precision": 0.3327213917074879,
+      "macro_recall": 0.312661819372317,
+      "macro_f1": 0.31917145686457005,
+      "confusion_matrix": [
+        [
+          0,
+          1,
+          3,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          11,
+          15,
+          15,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          17,
+          261,
+          129,
+          18,
+          2,
+          0
+        ],
+        [
+          1,
+          14,
+          125,
+          357,
+          63,
+          7,
+          0
+        ],
+        [
+          1,
+          2,
+          9,
+          89,
+          111,
+          4,
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          17,
+          12,
+          7,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "precision_per_class": [
+        0.0,
+        0.2391304347826087,
+        0.6289156626506024,
+        0.5862068965517241,
+        0.5414634146341464,
+        0.3333333333333333,
+        0.0
+      ],
+      "recall_per_class": [
+        0.0,
+        0.2558139534883721,
+        0.6098130841121495,
+        0.6296296296296297,
+        0.5138888888888888,
+        0.1794871794871795,
+        0.0
+      ],
+      "f1_per_class": [
+        0.0,
+        0.24719101123595508,
+        0.6192170818505338,
+        0.6071428571428571,
+        0.5273159144893111,
+        0.23333333333333334,
+        0.0
+      ],
+      "support": [
+        6,
+        43,
+        428,
+        567,
+        216,
+        39,
+        1
+      ]
+    },
+    "majority_baseline_accuracy": 0.43615384615384617,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:47.310391+00:00"
+  },
+  {
+    "benchmark": 10,
+    "dataset": "Wine quality",
+    "criterion": "gain_ratio",
+    "train_rows": 5197,
+    "test_rows": 1300,
+    "features": 14,
+    "classes": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "Red and white wines are combined with a color feature. Original integer quality scores are classification labels."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 41,
+      "leaves": 21,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.08065500005614012,
+      "baseline_rss_mib": 31.08984375,
+      "sampled_peak_rss_mib": 33.87890625,
+      "sampled_increase_mib": 2.7890625
+    },
+    "prediction": {
+      "seconds": 0.0002739999908953905,
+      "baseline_rss_mib": 32.4375,
+      "sampled_peak_rss_mib": 32.60546875,
+      "sampled_increase_mib": 0.16796875
+    },
+    "evaluation": {
+      "accuracy": 0.43615384615384617,
+      "macro_precision": 0.16717199660654347,
+      "macro_recall": 0.17255532704037685,
+      "macro_f1": 0.1303799955576059,
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          1,
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          41,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          426,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          564,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          216,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          39,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "precision_per_class": [
+        0.3333333333333333,
+        0.4,
+        0.0,
+        0.43687064291247096,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "recall_per_class": [
+        0.16666666666666666,
+        0.046511627906976744,
+        0.0,
+        0.9947089947089947,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "f1_per_class": [
+        0.2222222222222222,
+        0.08333333333333333,
+        0.0,
+        0.6071044133476857,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "support": [
+        6,
+        43,
+        428,
+        567,
+        216,
+        39,
+        1
+      ]
+    },
+    "majority_baseline_accuracy": 0.43615384615384617,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:47.629338+00:00"
+  },
+  {
+    "benchmark": 10,
+    "dataset": "Wine quality",
+    "criterion": "gini",
+    "train_rows": 5197,
+    "test_rows": 1300,
+    "features": 14,
+    "classes": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "split": "stratified",
+    "preprocessing_notes": [
+      "Red and white wines are combined with a color feature. Original integer quality scores are classification labels."
+    ],
+    "config": {
+      "max_depth": 12,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_impurity_decrease": 0.0
+    },
+    "tree": {
+      "nodes": 1219,
+      "leaves": 610,
+      "depth": 12
+    },
+    "training": {
+      "seconds": 0.5126304000150412,
+      "baseline_rss_mib": 31.28125,
+      "sampled_peak_rss_mib": 33.82421875,
+      "sampled_increase_mib": 2.54296875
+    },
+    "prediction": {
+      "seconds": 0.00435890001244843,
+      "baseline_rss_mib": 32.7421875,
+      "sampled_peak_rss_mib": 32.890625,
+      "sampled_increase_mib": 0.1484375
+    },
+    "evaluation": {
+      "accuracy": 0.563076923076923,
+      "macro_precision": 0.29151774888913057,
+      "macro_recall": 0.26898147300414926,
+      "macro_f1": 0.27525241833984243,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          4,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          29,
+          9,
+          3,
+          1,
+          0
+        ],
+        [
+          2,
+          10,
+          282,
+          123,
+          11,
+          0,
+          0
+        ],
+        [
+          3,
+          13,
+          148,
+          343,
+          53,
+          7,
+          0
+        ],
+        [
+          1,
+          4,
+          18,
+          87,
+          101,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          19,
+          13,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "precision_per_class": [
+        0.0,
+        0.03571428571428571,
+        0.5838509316770186,
+        0.5883361921097771,
+        0.554945054945055,
+        0.2777777777777778,
+        0.0
+      ],
+      "recall_per_class": [
+        0.0,
+        0.023255813953488372,
+        0.6588785046728972,
+        0.6049382716049383,
+        0.4675925925925926,
+        0.1282051282051282,
+        0.0
+      ],
+      "f1_per_class": [
+        0.0,
+        0.02816901408450704,
+        0.6190998902305159,
+        0.5965217391304348,
+        0.5075376884422111,
+        0.17543859649122806,
+        0.0
+      ],
+      "support": [
+        6,
+        43,
+        428,
+        567,
+        216,
+        39,
+        1
+      ]
+    },
+    "majority_baseline_accuracy": 0.43615384615384617,
+    "environment": {
+      "python": "3.12.10",
+      "numpy": "2.5.2",
+      "psutil": "7.2.2",
+      "os": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+      "logical_cpus": 16,
+      "system_memory_gib": 31.842281341552734
+    },
+    "measurement": {
+      "memory": "sampled process RSS, includes data and Python runtime",
+      "sample_interval_seconds": 0.005,
+      "repetitions": 1,
+      "timing": "perf_counter wall time; excludes loading, evaluation and writing"
+    },
+    "completed_at_utc": "2026-11-21T23:53:48.382186+00:00"
+  }
+]
