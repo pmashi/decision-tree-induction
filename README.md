@@ -1,6 +1,6 @@
 # Running the project
 
-Run these commands from the project root in PowerShell.
+Run these commands from the project root in PowerShell; existing processed data can be reused by skipping preprocessing.
 
 ```powershell
 python -m venv .venv
@@ -25,7 +25,7 @@ Runs the three decision-tree criteria and three comparison classifiers on all te
 ```powershell
 .\.venv\Scripts\python.exe main.py --benchmarks 9 --models gain --repeats 1 --output-dir results/wine-example
 ```
-Runs a single information-gain decision tree on the Wine benchmark and saves its results separately.
+Runs a single information-gain decision tree on the Wine benchmark and saves its results separately; use `--output-dir` to preserve earlier results because rerunning a comparison overwrites its selected outputs.
 
 ```powershell
 .\.venv\Scripts\python.exe -m benchmarking.resources --benchmark 1 --criterion gain
@@ -95,3 +95,18 @@ Returns to the project root.
 - 'tests/test_baselines.py' : Tests comparison classifiers, feature scaling, and agreement with reference metrics.
 - 'report/worked_example.py' : Generates the real-data worked example and checks its tree and predictions.
 - 'report/build_assets.py' : Creates LaTeX tables and figures from the saved benchmark results.
+
+## Saved experiment files
+
+Files in `results/comparison/` record the experiments used in the report.
+
+- 'runs.csv' : Stores every individual run's measurements.
+- 'summary.csv' : Stores per-benchmark and per-model means and standard deviations.
+- 'per_class.csv' : Stores evaluation scores for each class.
+- 'overall.csv' : Stores overall comparison scores and total training and prediction times.
+- 'results.json' : Stores complete experiment records and model settings.
+- 'predictions/' : Stores true and predicted labels for training and testing.
+- 'manifest.json' : Records command arguments, source and input hashes, and experiment completion status.
+- 'validation.json' : Records the results of the saved-experiment audit.
+
+The report asset builder reads these saved results and copies summary and provenance files into `report/` alongside the generated tables and figures.
