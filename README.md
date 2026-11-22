@@ -62,21 +62,6 @@ Recreates the report's small Wine example and verifies its split threshold, tree
 ```
 Generates the report's tables and figures from the saved comparison results.
 
-```powershell
-Push-Location report
-```
-Changes into the report folder while remembering the project root.
-
-```powershell
-pdflatex -interaction=nonstopmode -halt-on-error report.tex
-```
-Compiles the report with an installed LaTeX distribution; run this command twice to resolve table and section references.
-
-```powershell
-Pop-Location
-```
-Returns to the project root.
-
 ## Python files
 
 - 'main.py' : Runs the experiments, prints results, and saves comparison outputs.
