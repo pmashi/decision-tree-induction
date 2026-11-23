@@ -7,12 +7,12 @@ Compare models only once they cover the same datasets. These are descriptive ave
 
 | Model | Datasets | Mean accuracy | Mean macro F1 | Total train seconds | Total predict seconds |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| knn | 10 | 0.7503 | 0.6213 | 0.183 | 97.120 |
-| logistic_regression | 10 | 0.7482 | 0.5931 | 2.078 | 0.192 |
-| gini | 10 | 0.7353 | 0.5908 | 23.763 | 1.953 |
-| gain | 10 | 0.7314 | 0.5836 | 23.302 | 3.356 |
-| gain_ratio | 10 | 0.7240 | 0.5722 | 24.531 | 1.161 |
-| gaussian_nb | 10 | 0.5740 | 0.5172 | 0.162 | 0.525 |
+| knn | 5 | 0.7561 | 0.6225 | 0.059 | 0.557 |
+| logistic_regression | 5 | 0.7574 | 0.6146 | 1.289 | 0.007 |
+| gini | 5 | 0.7532 | 0.6140 | 14.126 | 0.005 |
+| gain_ratio | 5 | 0.7512 | 0.6131 | 15.420 | 0.003 |
+| gain | 5 | 0.7457 | 0.6031 | 10.621 | 0.005 |
+| gaussian_nb | 5 | 0.4872 | 0.4834 | 0.042 | 0.036 |
 
 ## Dataset observations
 
@@ -21,11 +21,6 @@ Compare models only once they cover the same datasets. These are descriptive ave
 - B3 (Computer hardware): highest observed macro F1 0.7417 (gaussian_nb); highest accuracy 0.8049 (gini). Training-majority baseline accuracy: 0.5854.
 - B4 (Contraceptive method choice): highest observed macro F1 0.4953 (logistic_regression); highest accuracy 0.5254 (logistic_regression). Training-majority baseline accuracy: 0.4271.
 - B5 (Human activity recognition): highest observed macro F1 0.9553 (logistic_regression); highest accuracy 0.9555 (logistic_regression). Training-majority baseline accuracy: 0.1822.
-- B6 (Japanese vowels): highest observed macro F1 0.9733 (logistic_regression); highest accuracy 0.9757 (logistic_regression). Training-majority baseline accuracy: 0.0838.
-- B7 (Poker hand): highest observed macro F1 0.1992 (knn); highest accuracy 0.5791 (gain_ratio). Training-majority baseline accuracy: 0.5012.
-- B8 (Steel industry): highest observed macro F1 0.6744 (gini); highest accuracy 0.7578 (gini). Training-majority baseline accuracy: 0.5285.
-- B9 (Wine): highest observed macro F1 1.0000 (logistic_regression); highest accuracy 1.0000 (logistic_regression). Training-majority baseline accuracy: 0.3889.
-- B10 (Wine quality): highest observed macro F1 0.3193 (knn); highest accuracy 0.5746 (gain). Training-majority baseline accuracy: 0.4362.
 
 ## Convergence and warnings
 

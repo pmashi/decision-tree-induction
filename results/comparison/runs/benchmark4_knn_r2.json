@@ -9,7 +9,7 @@
   "converged": true,
   "solver_iterations": [],
   "input_sha256": "18c53fc9c56af4f263380203d17aabc920ed3d0165371b93d796e1e546bf7c76",
-  "preprocessing_sha256": "3deeb9237cf2225725f48cc8fa63d47c8b34bb5fff0179e55c17203553847e38",
+  "preprocessing_sha256": "203d2271df689700117ba9f88744a3d8ad0af7c557a539ac060820332a4df2fd",
   "predictions_file": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\results\\comparison\\predictions\\benchmark4_knn_r2.npz",
   "train_rows": 1178,
   "test_rows": 295,
@@ -46,16 +46,16 @@
   },
   "tree": null,
   "training": {
-    "seconds": 0.013397600036114454,
-    "baseline_rss_mib": 141.01953125,
-    "sampled_peak_rss_mib": 141.375,
-    "sampled_increase_mib": 0.35546875
+    "seconds": 0.00413070002105087,
+    "baseline_rss_mib": 113.640625,
+    "sampled_peak_rss_mib": 114.02734375,
+    "sampled_increase_mib": 0.38671875
   },
   "prediction": {
-    "seconds": 0.006266799988225102,
-    "baseline_rss_mib": 141.37109375,
-    "sampled_peak_rss_mib": 142.265625,
-    "sampled_increase_mib": 0.89453125
+    "seconds": 0.004886699956841767,
+    "baseline_rss_mib": 114.0234375,
+    "sampled_peak_rss_mib": 114.8515625,
+    "sampled_increase_mib": 0.828125
   },
   "evaluation": {
     "accuracy": 0.46440677966101696,
@@ -146,7 +146,7 @@
   "majority_baseline_accuracy": 0.4271186440677966,
   "environment": {
     "python": "3.12.10",
-    "numpy": "2.5.2",
+    "numpy": "2.5.5",
     "psutil": "7.2.2",
     "sklearn": "1.9.1",
     "scipy": "1.18.1",
@@ -167,8 +167,8 @@
         "internal_api": "openblas",
         "num_threads": 1,
         "prefix": "libscipy_openblas",
-        "filepath": "C:\\Users\\mapei\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
-        "version": "0.3.34.0.0",
+        "filepath": "C:\\Users\\mapei\\Documents\\VisualStudioCode\\decision-tree-induction\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-4e39871015dc1470c682dc512497ee22.dll",
+        "version": "0.3.34.237.2",
         "threading_layer": "pthreads",
         "architecture": "Haswell"
       },
@@ -193,5 +193,5 @@
     ],
     "timing": "perf_counter wall time; includes model-specific scaling and prediction batching; excludes loading, evaluation and writing"
   },
-  "completed_at_utc": "2026-11-22T20:23:47.014137+00:00"
+  "completed_at_utc": "2026-11-23T04:08:33.135619+00:00"
 }
