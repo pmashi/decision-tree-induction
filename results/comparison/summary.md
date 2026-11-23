@@ -29,7 +29,7 @@ Repeated timings measure runtime variation, not uncertainty across different tra
 | 4 | Contraceptive method choice | gini | 3 | 0.5051 | 0.4764 | 0.2373 ± 0.0066 | 0.0013 ± 0.0001 | 113.9 | 114.0 |
 | 4 | Contraceptive method choice | knn | 3 | 0.4644 | 0.4352 | 0.0045 ± 0.0006 | 0.0048 ± 0.0001 | 113.9 | 114.7 |
 | 4 | Contraceptive method choice | logistic_regression | 3 | 0.5254 | 0.4953 | 0.0087 ± 0.0004 | 0.0004 ± 0.0000 | 114.3 | 114.3 |
-| 5 | Human activity recognition | gain | 1 | 0.8541 | 0.8507 | 10.2568 ± 0.0000 | 0.0024 ± 0.0000 | 172.9 | 141.4 |
+| 5 | Human activity recognition | gain | 2 | 0.8541 | 0.8507 | 10.5803 ± 0.4576 | 0.0025 ± 0.0002 | 172.9 | 141.4 |
 | 5 | Human activity recognition | gain_ratio | 2 | 0.8541 | 0.8500 | 15.1849 ± 2.1935 | 0.0021 ± 0.0001 | 172.0 | 140.6 |
 | 5 | Human activity recognition | gaussian_nb | 2 | 0.7703 | 0.7672 | 0.0272 ± 0.0034 | 0.0353 ± 0.0007 | 141.9 | 143.4 |
 | 5 | Human activity recognition | gini | 2 | 0.8707 | 0.8679 | 13.7620 ± 3.3187 | 0.0024 ± 0.0000 | 173.0 | 141.8 |
