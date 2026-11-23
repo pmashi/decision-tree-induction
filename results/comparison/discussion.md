@@ -7,12 +7,12 @@ Compare models only once they cover the same datasets. These are descriptive ave
 
 | Model | Datasets | Mean accuracy | Mean macro F1 | Total train seconds | Total predict seconds |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| knn | 5 | 0.7561 | 0.6225 | 0.059 | 0.557 |
-| logistic_regression | 5 | 0.7574 | 0.6146 | 1.289 | 0.007 |
-| gini | 5 | 0.7532 | 0.6140 | 14.126 | 0.005 |
+| knn | 5 | 0.7561 | 0.6225 | 0.059 | 0.558 |
+| logistic_regression | 5 | 0.7574 | 0.6146 | 1.308 | 0.007 |
+| gini | 5 | 0.7532 | 0.6140 | 13.457 | 0.005 |
 | gain_ratio | 5 | 0.7512 | 0.6131 | 15.420 | 0.003 |
 | gain | 5 | 0.7457 | 0.6031 | 10.945 | 0.005 |
-| gaussian_nb | 5 | 0.4872 | 0.4834 | 0.042 | 0.036 |
+| gaussian_nb | 5 | 0.4872 | 0.4834 | 0.044 | 0.037 |
 
 ## Dataset observations
 
